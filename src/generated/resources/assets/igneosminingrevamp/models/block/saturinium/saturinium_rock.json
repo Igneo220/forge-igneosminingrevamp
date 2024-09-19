@@ -1,0 +1,6 @@
+{
+  "parent": "igneosminingrevamp:block/saturinium_decor",
+  "textures": {
+    "decor": "igneosminingrevamp:block/saturinium/saturinium_top_rock"
+  }
+}
