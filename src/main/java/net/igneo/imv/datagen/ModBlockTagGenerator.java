@@ -1,8 +1,11 @@
 package net.igneo.imv.datagen;
 
 import net.igneo.imv.IMV;
+import net.igneo.imv.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -16,6 +19,25 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(BlockTags.DIRT)
+                .add(ModBlocks.MOSSY_SATURINIUM.get());
 
+        this.tag(BlockTags.MOSS_REPLACEABLE)
+                .add(ModBlocks.MOSSY_SATURINIUM.get());
+        this.tag(BlockTags.MOSS_REPLACEABLE)
+                .add(ModBlocks.SATURINIUM.get());
+        this.tag(BlockTags.MOSS_REPLACEABLE)
+                .add(ModBlocks.VALUENITE.get());
+        this.tag(BlockTags.MOSS_REPLACEABLE)
+                .add(ModBlocks.HUESTONE.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.MOSSY_SATURINIUM.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.SATURINIUM.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.VALUENITE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.HUESTONE.get());
     }
 }

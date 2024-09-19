@@ -1,6 +1,7 @@
 package net.igneo.imv.block;
 
 import net.igneo.imv.IMV;
+import net.igneo.imv.block.custom.MossySaturiniumBlock;
 import net.igneo.imv.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,9 +25,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> VALUENITE = registerBlock("valuenite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SATURINIUM = registerBlock("saturinium",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> MOSSY_SATURINIUM = registerBlock("mossy_saturinium",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).sound(SoundType.STONE)));
+            () -> new MossySaturiniumBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
