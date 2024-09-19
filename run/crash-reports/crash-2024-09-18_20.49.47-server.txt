@@ -1,0 +1,175 @@
+---- Minecraft Crash Report ----
+// Uh... Did I do that?
+
+Time: 2024-09-18 20:49:47
+Description: Exception generating new chunk
+
+java.lang.IllegalStateException: Missing element ResourceKey[minecraft:worldgen/noise / igneosminingrevamp:valuenite]
+	at net.minecraft.core.HolderGetter.lambda$getOrThrow$0(HolderGetter.java:15) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?] {}
+	at net.minecraft.core.HolderGetter.getOrThrow(HolderGetter.java:15) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.Noises.instantiate(Noises.java:96) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.RandomState.lambda$getOrCreateNoise$0(RandomState.java:125) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?] {}
+	at net.minecraft.world.level.levelgen.RandomState.getOrCreateNoise(RandomState.java:125) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$NoiseThresholdConditionSource.apply(SurfaceRules.java:661) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$NoiseThresholdConditionSource.apply(SurfaceRules.java:646) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:780) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:767) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:800) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:780) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:767) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:795) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:800) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceSystem.buildSurface(SurfaceSystem.java:112) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.buildSurface(NoiseBasedChunkGenerator.java:250) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.buildSurface(NoiseBasedChunkGenerator.java:243) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$9(ChunkStatus.java:93) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:309) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:252) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$27(ChunkMap.java:643) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar%23136!/:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$29(ChunkMap.java:634) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.lambda$message$1(ChunkTaskPriorityQueueSorter.java:62) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollTask(ProcessorMailbox.java:91) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollUntil(ProcessorMailbox.java:146) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Suspected Mods: NONE
+Stacktrace:
+	at net.minecraft.core.HolderGetter.lambda$getOrThrow$0(HolderGetter.java:15) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?] {}
+	at net.minecraft.core.HolderGetter.getOrThrow(HolderGetter.java:15) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.Noises.instantiate(Noises.java:96) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.RandomState.lambda$getOrCreateNoise$0(RandomState.java:125) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?] {}
+	at net.minecraft.world.level.levelgen.RandomState.getOrCreateNoise(RandomState.java:125) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$NoiseThresholdConditionSource.apply(SurfaceRules.java:661) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$NoiseThresholdConditionSource.apply(SurfaceRules.java:646) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:780) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:767) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:800) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:780) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$TestRuleSource.apply(SurfaceRules.java:767) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:795) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:800) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceRules$SequenceRuleSource.apply(SurfaceRules.java:784) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.SurfaceSystem.buildSurface(SurfaceSystem.java:112) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.buildSurface(NoiseBasedChunkGenerator.java:250) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.buildSurface(NoiseBasedChunkGenerator.java:243) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$9(ChunkStatus.java:93) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus$SimpleGenerationTask.doWork(ChunkStatus.java:309) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:252) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+-- Chunk to be generated --
+Details:
+	Location: 39,-64
+	Position hash: -274877906905
+	Generator: net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@42134558
+Stacktrace:
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$27(ChunkMap.java:643) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-6.0.8.jar%23136!/:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$29(ChunkMap.java:634) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.lambda$message$1(ChunkTaskPriorityQueueSorter.java:62) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollTask(ProcessorMailbox.java:91) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollUntil(ProcessorMailbox.java:146) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.8, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 520393032 bytes (496 MiB) / 1769996288 bytes (1688 MiB) up to 4238344192 bytes (4042 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz
+	Identifier: Intel64 Family 6 Model 141 Stepping 1
+	Microarchitecture: unknown
+	Frequency (GHz): 2.69
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce RTX 3050 Ti Laptop GPU
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x25a0
+	Graphics card #0 versionInfo: DriverVersion=32.0.15.5599
+	Graphics card #1 name: Intel(R) UHD Graphics
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0x9a68
+	Graphics card #1 versionInfo: DriverVersion=27.20.100.9365
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 53027.30
+	Virtual memory used (MB): 31446.80
+	Swap memory total (MB): 36864.00
+	Swap memory used (MB): 3972.89
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/174, l='ServerLevel[New World]', x=665.73, y=152.91, z=-991.87]]
+	Data Packs: vanilla, mod:forge, mod:igneosminingrevamp
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Experimental
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.10.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.10.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.10.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.10.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.10.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |47.3.10             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Igneo's Mining Revamp         |igneosminingrevamp            |0.0.0               |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 6f9b035b-4935-47d4-b344-250403648eab
+	FML: 47.3
+	Forge: net.minecraftforge:47.3.10

@@ -1,0 +1,31 @@
+[18Sep2024 18:35:00.829] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Igneo\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.10, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, igneosminingrevamp, --all, --output, C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\src\generated\resources, --existing, C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\src\main\resources]
+[18Sep2024 18:35:00.832] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.8 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[18Sep2024 18:35:00.953] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[18Sep2024 18:35:01.003] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Igneo/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[18Sep2024 18:35:01.346] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Igneo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.10\7a15037366722893d76a3d0b2e9d1fd13a63a22d\javafmllanguage-1.20.1-47.3.10.jar is missing mods.toml file
+[18Sep2024 18:35:01.350] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Igneo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.10\e67d9b3451d64ccc812cbbd33c066bd3ebbf2167\lowcodelanguage-1.20.1-47.3.10.jar is missing mods.toml file
+[18Sep2024 18:35:01.352] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Igneo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.10\2023f9726a509c5ba5a925cac934944066093de8\mclanguage-1.20.1-47.3.10.jar is missing mods.toml file
+[18Sep2024 18:35:01.356] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Igneo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.10\523aa0cd9a773b2b56268d8689b2fb5c1f072941\fmlcore-1.20.1-47.3.10.jar is missing mods.toml file
+[18Sep2024 18:35:01.427] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[18Sep2024 18:35:02.665] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Igneo\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, igneosminingrevamp, --all, --output, C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\src\generated\resources, --existing, C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\src\main\resources]
+[18Sep2024 18:35:03.086] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [igneosminingrevamp]
+[18Sep2024 18:35:07.283] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.10, for MC 1.20.1 with MCP 20230612.114412
+[18Sep2024 18:35:07.284] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.10 Initialized
+[18Sep2024 18:35:07.884] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Igneo/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[18Sep2024 18:35:07.884] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Igneo/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.10_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[18Sep2024 18:35:08.025] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[18Sep2024 18:35:08.029] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 2 ms
+[18Sep2024 18:35:08.029] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[18Sep2024 18:35:08.108] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 78 ms
+[18Sep2024 18:35:08.108] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: igneosminingrevamp
+[18Sep2024 18:35:08.231] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: igneosminingrevamp finished after 123 ms
+[18Sep2024 18:35:08.231] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: igneosminingrevamp
+[18Sep2024 18:35:08.232] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: igneosminingrevamp finished after 0 ms
+[18Sep2024 18:35:08.232] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id igneosminingrevamp
+[18Sep2024 18:35:08.235] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id igneosminingrevamp finished after 2 ms
+[18Sep2024 18:35:08.235] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id igneosminingrevamp
+[18Sep2024 18:35:08.236] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id igneosminingrevamp finished after 0 ms
+[18Sep2024 18:35:08.236] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[18Sep2024 18:35:08.254] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 17 ms
+[18Sep2024 18:35:08.255] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 229 ms
+[18Sep2024 18:35:08.261] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 19, old count: 18, new count: 20, removed stale: 0, written: 1
