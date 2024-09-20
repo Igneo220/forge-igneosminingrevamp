@@ -134,13 +134,13 @@ Adding Libraries to Inheritance
 Reading Input: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\build\libs\igneosminingrevamp-0.0.0.jar
 Adding input to inheritance map
 Processing entries
-Conflicting propagated mapping for net/igneo/imv/datagen/loot/ModBlockLootTables/generate()V from net/minecraft/data/loot/BlockLootSubProvider/generate()V: generate -> m_245660_
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/ModelProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/ItemModelProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
-Conflicting propagated mapping for net/igneo/imv/datagen/ModBlockTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
-Conflicting propagated mapping for net/igneo/imv/datagen/ModItemTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
 Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
 Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
+Conflicting propagated mapping for net/igneo/imv/datagen/loot/ModBlockLootTables/generate()V from net/minecraft/data/loot/BlockLootSubProvider/generate()V: generate -> m_245660_
+Conflicting propagated mapping for net/igneo/imv/datagen/ModBlockTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
+Conflicting propagated mapping for net/igneo/imv/datagen/ModItemTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/ModelProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/ItemModelProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
 Conflicting propagated mapping for net/igneo/imv/datagen/ModRecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V from net/minecraft/data/recipes/RecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V: buildRecipes -> m_245200_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/tick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V from net/minecraft/world/level/block/state/BlockBehaviour/tick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V: tick -> m_213897_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V from net/minecraft/world/level/block/SpreadingSnowyDirtBlock/randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V: randomTick -> m_213898_
@@ -165,18 +165,27 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   assets/
   assets/igneosminingrevamp/
   assets/igneosminingrevamp/blockstates/
+  assets/igneosminingrevamp/blockstates/coal_saturinium_ore.json
+  assets/igneosminingrevamp/blockstates/crystal_ore.json
   assets/igneosminingrevamp/blockstates/huestone.json
+  assets/igneosminingrevamp/blockstates/iron_saturinium_ore.json
+  assets/igneosminingrevamp/blockstates/luminide.json
   assets/igneosminingrevamp/blockstates/mossy_saturinium.json
   assets/igneosminingrevamp/blockstates/saturinium.json
   assets/igneosminingrevamp/blockstates/valuenite.json
   assets/igneosminingrevamp/models/
   assets/igneosminingrevamp/models/block/
+  assets/igneosminingrevamp/models/block/coal_saturinium_ore.json
+  assets/igneosminingrevamp/models/block/crystal_ore.json
   assets/igneosminingrevamp/models/block/huestone.json
+  assets/igneosminingrevamp/models/block/iron_saturinium_ore.json
+  assets/igneosminingrevamp/models/block/luminide.json
   assets/igneosminingrevamp/models/block/mossy_saturinium.json
   assets/igneosminingrevamp/models/block/mossy_saturinium/
   assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium.json
   assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium_flower_big.json
   assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium_flower_small.json
+  assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium_item.json
   assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium_lotus.json
   assets/igneosminingrevamp/models/block/mossy_saturinium/mossy_saturinium_rock.json
   assets/igneosminingrevamp/models/block/mossy_saturinium_decor.json
@@ -184,13 +193,25 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   assets/igneosminingrevamp/models/block/saturinium.json
   assets/igneosminingrevamp/models/block/valuenite.json
   assets/igneosminingrevamp/models/item/
+  assets/igneosminingrevamp/models/item/coal_saturinium_ore.json
+  assets/igneosminingrevamp/models/item/crystal_ore.json
   assets/igneosminingrevamp/models/item/huestone.json
+  assets/igneosminingrevamp/models/item/iron_saturinium_ore.json
+  assets/igneosminingrevamp/models/item/luminide.json
   assets/igneosminingrevamp/models/item/mossy_saturinium.json
   assets/igneosminingrevamp/models/item/saturinium.json
   assets/igneosminingrevamp/models/item/valuenite.json
   assets/igneosminingrevamp/textures/
   assets/igneosminingrevamp/textures/block/
+  assets/igneosminingrevamp/textures/block/coal_saturinium_ore.png
+  assets/igneosminingrevamp/textures/block/coal_saturinium_ore_bottom.png
+  assets/igneosminingrevamp/textures/block/crystal_ore.png
   assets/igneosminingrevamp/textures/block/huestone.png
+  assets/igneosminingrevamp/textures/block/iron_saturinium_ore.png
+  assets/igneosminingrevamp/textures/block/iron_saturinium_ore_bottom.png
+  assets/igneosminingrevamp/textures/block/luminide.png
+  assets/igneosminingrevamp/textures/block/luminide_side.png
+  assets/igneosminingrevamp/textures/block/luminide_top.png
   assets/igneosminingrevamp/textures/block/mossy_saturinium.png
   assets/igneosminingrevamp/textures/block/mossy_saturinium/
   assets/igneosminingrevamp/textures/block/mossy_saturinium/mossy_saturinium_lotus.png
@@ -209,7 +230,10 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   data/igneosminingrevamp/dimension_type/igneodim_type.json
   data/igneosminingrevamp/loot_tables/
   data/igneosminingrevamp/loot_tables/blocks/
+  data/igneosminingrevamp/loot_tables/blocks/coal_saturinium_ore.json
   data/igneosminingrevamp/loot_tables/blocks/huestone.json
+  data/igneosminingrevamp/loot_tables/blocks/iron_saturinium_ore.json
+  data/igneosminingrevamp/loot_tables/blocks/luminide.json
   data/igneosminingrevamp/loot_tables/blocks/mossy_saturinium.json
   data/igneosminingrevamp/loot_tables/blocks/saturinium.json
   data/igneosminingrevamp/loot_tables/blocks/valuenite.json
@@ -218,6 +242,8 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   data/igneosminingrevamp/worldgen/biome/chroma_caverns.json
   data/imv/
   data/imv/worldgen/
+  data/imv/worldgen/biome/
+  data/imv/worldgen/biome/chroma_caverns.json
   data/imv/worldgen/noise/
   data/imv/worldgen/noise/chromastrip.json
   data/imv/worldgen/noise_settings/
@@ -226,6 +252,9 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   data/minecraft/tags/
   data/minecraft/tags/blocks/
   data/minecraft/tags/blocks/dirt.json
+  data/minecraft/tags/blocks/mineable/
+  data/minecraft/tags/blocks/mineable/pickaxe.json
+  data/minecraft/tags/blocks/moss_replaceable.json
   data/minecraft/worldgen/
   data/minecraft/worldgen/configured_feature/
   data/minecraft/worldgen/configured_feature/glow_lichen.json

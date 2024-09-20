@@ -20,6 +20,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SATURINIUM);
         blockWithItem(ModBlocks.MOSSY_SATURINIUM);
         blockWithItem(ModBlocks.LUMINIDE);
+        blockWithItem(ModBlocks.COAL_SATURINIUM_ORE);
+        blockWithItem(ModBlocks.IRON_SATURINIUM_ORE);
+        blockWithItem(ModBlocks.CRYSTAL_ORE);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

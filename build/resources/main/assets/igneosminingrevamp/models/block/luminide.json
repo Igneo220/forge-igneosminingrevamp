@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "igneosminingrevamp:block/luminide_top",
-    "side": "igneosminingrevamp:block/luminide"
+    "all": "igneosminingrevamp:block/luminide"
   }
 }
