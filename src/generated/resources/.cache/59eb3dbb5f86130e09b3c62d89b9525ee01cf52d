@@ -1,5 +1,7 @@
-// 1.20.1	2024-09-20T01:42:40.3665284	Loot Tables
+// 1.20.1	2024-09-20T04:51:03.7134486	Loot Tables
+974949e7c07e39c12c496029c70137c04a9f1a04 data/igneosminingrevamp/loot_tables/blocks/coal_saturinium_ore.json
 dda3f784288a72391cf694a2ec36095e5b5a6bf0 data/igneosminingrevamp/loot_tables/blocks/huestone.json
+f7c90c45b6bd515e3c8201a20874504f41492500 data/igneosminingrevamp/loot_tables/blocks/iron_saturinium_ore.json
 3cfa156031807deddfbf539c7ae4589a4052d323 data/igneosminingrevamp/loot_tables/blocks/luminide.json
 a630073285e11c6cb357b709a3cb1ecf0ff70daf data/igneosminingrevamp/loot_tables/blocks/mossy_saturinium.json
 a4613b9f2afe07d85fa5f49851b48cd74370e6a1 data/igneosminingrevamp/loot_tables/blocks/saturinium.json

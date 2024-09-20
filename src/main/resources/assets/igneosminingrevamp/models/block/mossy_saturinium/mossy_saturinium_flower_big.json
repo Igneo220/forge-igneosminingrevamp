@@ -1,0 +1,6 @@
+{
+  "parent": "igneosminingrevamp:block/mossy_saturinium_decor",
+  "textures": {
+    "decor": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_top_flower_big"
+  }
+}

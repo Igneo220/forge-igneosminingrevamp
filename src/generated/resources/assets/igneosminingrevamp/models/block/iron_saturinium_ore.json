@@ -1,9 +1,9 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "igneosminingrevamp:block/saturinium",
-    "bottom": "igneosminingrevamp:block/saturinium_bottom",
-    "top": "igneosminingrevamp:block/saturinium_bottom",
-    "side": "igneosminingrevamp:block/saturinium"
+    "particle": "igneosminingrevamp:block/iron_saturinium_ore",
+    "bottom": "igneosminingrevamp:block/iron_saturinium_ore_bottom",
+    "top": "igneosminingrevamp:block/iron_saturinium_ore_bottom",
+    "side": "igneosminingrevamp:block/iron_saturinium_ore"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
