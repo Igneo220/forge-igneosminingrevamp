@@ -104,5 +104,17 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/warped_planks": {
+    "criteria": {
+      "has_logs": "2024-09-19 18:26:48 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/cyan_dye_from_pitcher_plant": {
+    "criteria": {
+      "has_pitcher_plant": "2024-09-19 18:28:48 -0400"
+    },
+    "done": true
+  },
   "DataVersion": 3465
 }

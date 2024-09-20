@@ -6,10 +6,10 @@
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium", "weight":84, "y": 180},
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium", "weight":84, "y": 270},
 		
-		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":1},
-		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":1, "y":90},
-		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":1, "y":180},
-		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":1, "y":270},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":6},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":6, "y":90},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":6, "y":180},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_rock", "weight":6, "y":270},
 
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_small", "weight":4},
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_small", "weight":4, "y":90},
@@ -19,7 +19,12 @@
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_big", "weight":2},
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_big", "weight":2, "y":90},
 		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_big", "weight":2, "y":180},
-		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_big", "weight":2, "y":270}
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_flower_big", "weight":2, "y":270},
+
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_lotus", "weight":8},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_lotus", "weight":8, "y":90},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_lotus", "weight":8, "y":180},
+		{"model": "igneosminingrevamp:block/mossy_saturinium/mossy_saturinium_lotus", "weight":8, "y":270}
     ]
   }
 }
