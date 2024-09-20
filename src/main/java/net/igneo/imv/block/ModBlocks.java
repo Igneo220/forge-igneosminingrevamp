@@ -21,13 +21,15 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, IMV.MOD_ID);
 
     public static final RegistryObject<Block> HUESTONE = registerBlock("huestone",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> VALUENITE = registerBlock("valuenite",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> SATURINIUM = registerBlock("saturinium",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> MOSSY_SATURINIUM = registerBlock("mossy_saturinium",
-            () -> new MossySaturiniumBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new MossySaturiniumBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> LUMINIDE = registerBlock("luminide",
+            () -> new MossySaturiniumBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
