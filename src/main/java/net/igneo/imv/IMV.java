@@ -3,7 +3,20 @@ package net.igneo.imv;
 import com.mojang.logging.LogUtils;
 import net.igneo.imv.block.ModBlocks;
 import net.igneo.imv.item.ModItems;
+import net.igneo.imv.worldgen.ModConfiguredFeatures;
+import net.igneo.imv.worldgen.ModFeatures;
+import net.igneo.imv.worldgen.ModPlacedFeatures;
+import net.igneo.imv.worldgen.structure.ModStructures;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.DisplayRenderer;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.world.entity.Display;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ForgeRenderTypes;
+import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.client.model.renderable.ITextureRenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -29,6 +42,8 @@ public class IMV
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModStructures.register(modEventBus);
+        ModFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -61,7 +76,9 @@ public class IMV
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOSSY_SATURINIUM.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.POINTED_HUESTONE.get(),RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.POINTED_VALUENITE.get(),RenderType.cutout());
         }
     }
 }

@@ -2,6 +2,7 @@ package net.igneo.imv.item;
 
 import net.igneo.imv.IMV;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.levelgen.structure.structures.NetherFortressStructure;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

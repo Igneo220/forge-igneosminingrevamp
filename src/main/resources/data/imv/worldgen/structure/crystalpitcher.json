@@ -1,0 +1,21 @@
+{
+  "type": "igneosminingrevamp:crystalpitcher",
+  "start_pool": "imv:crystalpitcher/start_pool",
+  "size": 1,
+  "max_distance_from_center": 1,
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 72
+    },
+    "min_inclusive": {
+      "absolute": 34
+    }
+  },
+  "biomes": "#imv:has_structure/crystalpitcher",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "use_expansion_hack": true,
+  "spawn_overrides": {
+  }
+}

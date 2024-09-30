@@ -2,15 +2,16 @@ package net.igneo.imv.block;
 
 import net.igneo.imv.IMV;
 import net.igneo.imv.block.custom.MossySaturiniumBlock;
+import net.igneo.imv.block.custom.PointedHuestoneBlock;
+import net.igneo.imv.block.custom.PointedValueniteBlock;
 import net.igneo.imv.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.feature.DripstoneClusterFeature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,8 +26,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> HUESTONE = registerBlock("huestone",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST).lightLevel(state -> 5)));
+    public static final RegistryObject<Block> POINTED_HUESTONE = registerBlock("pointed_huestone",
+            () -> new PointedHuestoneBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE).sound(SoundType.AMETHYST).lightLevel(state -> 7)));
     public static final RegistryObject<Block> VALUENITE = registerBlock("valuenite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST).lightLevel(state -> 5)));
+    public static final RegistryObject<Block> POINTED_VALUENITE = registerBlock("pointed_valuenite",
+            () -> new PointedValueniteBlock(BlockBehaviour.Properties.copy(Blocks.POINTED_DRIPSTONE).sound(SoundType.AMETHYST).lightLevel(state -> 7)));
     public static final RegistryObject<Block> SATURINIUM = registerBlock("saturinium",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> MOSSY_SATURINIUM = registerBlock("mossy_saturinium",
@@ -39,7 +44,6 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> IRON_SATURINIUM_ORE = registerBlock("iron_saturinium_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
-
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

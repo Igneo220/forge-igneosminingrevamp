@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+    "structure": "imv:crystalpitcher",
+    "weight": 100
+  }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1386517901,
+    "separation": 4,
+    "spacing": 5
+  }
+}
