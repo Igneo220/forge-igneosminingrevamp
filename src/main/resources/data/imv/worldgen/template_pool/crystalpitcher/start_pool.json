@@ -1,0 +1,15 @@
+{
+  "name": "igneosminingrevamp:crystalpitcher/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 100,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "imv:crystalpitcher",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

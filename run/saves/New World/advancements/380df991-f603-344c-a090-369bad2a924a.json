@@ -7,9 +7,18 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:snowy_slopes": "2024-09-20 20:47:03 -0400",
+      "minecraft:old_growth_pine_taiga": "2024-09-20 13:39:28 -0400",
+      "minecraft:cherry_grove": "2024-09-22 17:06:12 -0400",
+      "minecraft:sunflower_plains": "2024-09-22 17:04:52 -0400",
+      "minecraft:river": "2024-09-20 13:39:22 -0400",
       "minecraft:dripstone_caves": "2024-09-15 19:34:46 -0400",
+      "minecraft:grove": "2024-09-20 20:46:17 -0400",
       "minecraft:forest": "2024-09-14 10:17:35 -0400",
       "minecraft:lush_caves": "2024-09-15 19:36:35 -0400",
+      "minecraft:deep_frozen_ocean": "2024-09-20 20:45:44 -0400",
+      "minecraft:old_growth_spruce_taiga": "2024-09-20 13:39:44 -0400",
+      "minecraft:meadow": "2024-09-20 20:46:16 -0400",
       "minecraft:plains": "2024-09-15 19:13:16 -0400"
     },
     "done": false
@@ -113,6 +122,96 @@
   "minecraft:recipes/misc/cyan_dye_from_pitcher_plant": {
     "criteria": {
       "has_pitcher_plant": "2024-09-19 18:28:48 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/dripstone_block": {
+    "criteria": {
+      "has_pointed_dripstone": "2024-09-24 12:11:47 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_bricks": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_brick_slab_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_brick_stairs_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_slab_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_bricks_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_slab": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/chiseled_stone_bricks_stone_from_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_stairs_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/stone_button": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/stonecutter": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/stone_pressure_plate": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/smooth_stone": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/stone_brick_walls_from_stone_stonecutting": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/stone_stairs": {
+    "criteria": {
+      "has_stone": "2024-09-25 02:26:19 -0400"
     },
     "done": true
   },

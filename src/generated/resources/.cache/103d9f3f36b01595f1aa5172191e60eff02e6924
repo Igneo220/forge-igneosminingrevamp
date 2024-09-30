@@ -1,4 +1,8 @@
-// 1.20.1	2024-09-20T01:42:40.3670429	Registries
+// 1.20.1	2024-09-26T21:18:23.336021	Registries
 7f4dc41ded2ed9db3fb9b1b4a4165205f8bfe534 data/igneosminingrevamp/dimension/igneodim.json
 57552d880991f8891a528fb960472b2c45c8d66e data/igneosminingrevamp/dimension_type/igneodim_type.json
 7c532ccf561afc9f1cd17e6da77b3460402ad928 data/igneosminingrevamp/worldgen/biome/chroma_caverns.json
+c0b346ca7ef1c1730709edf390120ac6703d6c95 data/igneosminingrevamp/worldgen/configured_feature/huestone_cluster.json
+07bbec9265ba4082ce515a2916e1e02a6087b856 data/igneosminingrevamp/worldgen/configured_feature/valuenite_cluster.json
+8a0f0a779ebc7901db1a398075e2f6608c8f0511 data/igneosminingrevamp/worldgen/placed_feature/huestone_cluster.json
+318b6f5b2305fdec2de7add887e34ac1ea7c5b01 data/igneosminingrevamp/worldgen/placed_feature/valuenite_cluster.json

@@ -20,7 +20,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.HUESTONE.get());
+        this.dropSelf(ModBlocks.POINTED_HUESTONE.get());
         this.dropSelf(ModBlocks.VALUENITE.get());
+        this.dropSelf(ModBlocks.POINTED_VALUENITE.get());
         this.dropSelf(ModBlocks.SATURINIUM.get());
         this.dropSelf(ModBlocks.MOSSY_SATURINIUM.get());
         this.dropSelf(ModBlocks.LUMINIDE.get());

@@ -134,19 +134,31 @@ Adding Libraries to Inheritance
 Reading Input: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\build\libs\igneosminingrevamp-0.0.0.jar
 Adding input to inheritance map
 Processing entries
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
 Conflicting propagated mapping for net/igneo/imv/datagen/loot/ModBlockLootTables/generate()V from net/minecraft/data/loot/BlockLootSubProvider/generate()V: generate -> m_245660_
-Conflicting propagated mapping for net/igneo/imv/datagen/ModBlockTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
 Conflicting propagated mapping for net/igneo/imv/datagen/ModItemTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/ModelProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
-Conflicting propagated mapping for net/minecraftforge/client/model/generators/ItemModelProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
-Conflicting propagated mapping for net/igneo/imv/datagen/ModRecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V from net/minecraft/data/recipes/RecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V: buildRecipes -> m_245200_
+Conflicting propagated mapping for net/igneo/imv/datagen/ModBlockTagGenerator/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V from net/minecraft/data/tags/TagsProvider/addTags(Lnet/minecraft/core/HolderLookup$Provider;)V: addTags -> m_6577_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/tick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V from net/minecraft/world/level/block/state/BlockBehaviour/tick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V: tick -> m_213897_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V from net/minecraft/world/level/block/SpreadingSnowyDirtBlock/randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V: randomTick -> m_213898_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/isBonemealSuccess(Lnet/minecraft/world/level/Level;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/level/block/BonemealableBlock/isBonemealSuccess(Lnet/minecraft/world/level/Level;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z: isBonemealSuccess -> m_214167_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/performBonemeal(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V from net/minecraft/world/level/block/BonemealableBlock/performBonemeal(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V: performBonemeal -> m_214148_
 Conflicting propagated mapping for net/igneo/imv/block/custom/MossySaturiniumBlock/isValidBonemealTarget(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)Z from net/minecraft/world/level/block/BonemealableBlock/isValidBonemealTarget(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)Z: isValidBonemealTarget -> m_7370_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/BlockStateProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
+Conflicting propagated mapping for net/igneo/imv/datagen/ModRecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V from net/minecraft/data/recipes/RecipeProvider/buildRecipes(Ljava/util/function/Consumer;)V: buildRecipes -> m_245200_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/ModelProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/data/DataProvider/run(Lnet/minecraft/data/CachedOutput;)Ljava/util/concurrent/CompletableFuture;: run -> m_213708_
+Conflicting propagated mapping for net/minecraftforge/client/model/generators/ItemModelProvider/getName()Ljava/lang/String; from net/minecraft/data/DataProvider/getName()Ljava/lang/String;: getName -> m_6055_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalFlowerStructure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional; from net/minecraft/world/level/levelgen/structure/Structure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional;: findGenerationPoint -> m_214086_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalPitcherStructure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional; from net/minecraft/world/level/levelgen/structure/Structure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional;: findGenerationPoint -> m_214086_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalFlowerStructure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration; from net/minecraft/world/level/levelgen/structure/Structure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration;: step -> m_226619_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalFlowerStructure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType; from net/minecraft/world/level/levelgen/structure/Structure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType;: type -> m_213658_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalPitcherStructure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration; from net/minecraft/world/level/levelgen/structure/Structure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration;: step -> m_226619_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalPitcherStructure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType; from net/minecraft/world/level/levelgen/structure/Structure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType;: type -> m_213658_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalBehemothStructure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional; from net/minecraft/world/level/levelgen/structure/Structure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional;: findGenerationPoint -> m_214086_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalBehemothStructure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration; from net/minecraft/world/level/levelgen/structure/Structure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration;: step -> m_226619_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalBehemothStructure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType; from net/minecraft/world/level/levelgen/structure/Structure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType;: type -> m_213658_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalLotusStructure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional; from net/minecraft/world/level/levelgen/structure/Structure/findGenerationPoint(Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)Ljava/util/Optional;: findGenerationPoint -> m_214086_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalLotusStructure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration; from net/minecraft/world/level/levelgen/structure/Structure/step()Lnet/minecraft/world/level/levelgen/GenerationStep$Decoration;: step -> m_226619_
+Conflicting propagated mapping for net/igneo/imv/worldgen/structure/CrystalLotusStructure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType; from net/minecraft/world/level/levelgen/structure/Structure/type()Lnet/minecraft/world/level/levelgen/structure/StructureType;: type -> m_213658_
 Conflicting propagated mapping for net/minecraftforge/event/BuildCreativeModeTabContentsEvent/accept(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/CreativeModeTab$TabVisibility;)V from net/minecraft/world/item/CreativeModeTab$Output/accept(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/CreativeModeTab$TabVisibility;)V: accept -> m_246267_
 Adding extras
 Sorting
@@ -241,6 +253,22 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   data/igneosminingrevamp/worldgen/biome/
   data/igneosminingrevamp/worldgen/biome/chroma_caverns.json
   data/imv/
+  data/imv/structures/
+  data/imv/structures/crystalbehemoth.nbt
+  data/imv/structures/crystalflower1.nbt
+  data/imv/structures/crystalflower2.nbt
+  data/imv/structures/crystalflowersmall.nbt
+  data/imv/structures/crystalflowertall.nbt
+  data/imv/structures/crystallotus.nbt
+  data/imv/structures/crystalpitcher.nbt
+  data/imv/tags/
+  data/imv/tags/worldgen/
+  data/imv/tags/worldgen/biome/
+  data/imv/tags/worldgen/biome/has_structure/
+  data/imv/tags/worldgen/biome/has_structure/crystalbehemoth.json
+  data/imv/tags/worldgen/biome/has_structure/crystalflower.json
+  data/imv/tags/worldgen/biome/has_structure/crystallotus.json
+  data/imv/tags/worldgen/biome/has_structure/crystalpitcher.json
   data/imv/worldgen/
   data/imv/worldgen/biome/
   data/imv/worldgen/biome/chroma_caverns.json
@@ -248,6 +276,25 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   data/imv/worldgen/noise/chromastrip.json
   data/imv/worldgen/noise_settings/
   data/imv/worldgen/noise_settings/mdim.json
+  data/imv/worldgen/structure/
+  data/imv/worldgen/structure/crystalbehemoth.json
+  data/imv/worldgen/structure/crystalflower.json
+  data/imv/worldgen/structure/crystallotus.json
+  data/imv/worldgen/structure/crystalpitcher.json
+  data/imv/worldgen/structure_set/
+  data/imv/worldgen/structure_set/crystalbehemoth.json
+  data/imv/worldgen/structure_set/crystalflower.json
+  data/imv/worldgen/structure_set/crystallotus.json
+  data/imv/worldgen/structure_set/crystalpitcher.json
+  data/imv/worldgen/template_pool/
+  data/imv/worldgen/template_pool/crystalbehemoth/
+  data/imv/worldgen/template_pool/crystalbehemoth/start_pool.json
+  data/imv/worldgen/template_pool/crystalflower/
+  data/imv/worldgen/template_pool/crystalflower/start_pool.json
+  data/imv/worldgen/template_pool/crystallotus/
+  data/imv/worldgen/template_pool/crystallotus/start_pool.json
+  data/imv/worldgen/template_pool/crystalpitcher/
+  data/imv/worldgen/template_pool/crystalpitcher/start_pool.json
   data/minecraft/
   data/minecraft/tags/
   data/minecraft/tags/blocks/
@@ -289,4 +336,10 @@ Writing Output: C:\Users\Igneo\OneDrive\Desktop\mods\forge-igneosminingrevamp\bu
   net/igneo/imv/worldgen/dimension/ModDimensions.class
   net/igneo/imv/worldgen/portal/
   net/igneo/imv/worldgen/portal/ModTeleporter.class
+  net/igneo/imv/worldgen/structure/
+  net/igneo/imv/worldgen/structure/CrystalBehemothStructure.class
+  net/igneo/imv/worldgen/structure/CrystalFlowerStructure.class
+  net/igneo/imv/worldgen/structure/CrystalLotusStructure.class
+  net/igneo/imv/worldgen/structure/CrystalPitcherStructure.class
+  net/igneo/imv/worldgen/structure/ModStructures.class
   pack.mcmeta

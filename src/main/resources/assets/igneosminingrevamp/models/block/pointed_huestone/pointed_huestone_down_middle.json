@@ -1,0 +1,6 @@
+{
+  "parent": "igneosminingrevamp:block/pointed_huestone",
+  "textures": {
+    "cross": "igneosminingrevamp:block/pointed_huestone_down_middle"
+  }
+}

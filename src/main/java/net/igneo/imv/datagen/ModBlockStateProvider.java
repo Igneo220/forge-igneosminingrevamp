@@ -16,7 +16,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.HUESTONE);
+        blockWithItem(ModBlocks.POINTED_HUESTONE);
         blockWithItem(ModBlocks.VALUENITE);
+        blockWithItem(ModBlocks.POINTED_VALUENITE);
         blockWithItem(ModBlocks.SATURINIUM);
         blockWithItem(ModBlocks.MOSSY_SATURINIUM);
         blockWithItem(ModBlocks.LUMINIDE);

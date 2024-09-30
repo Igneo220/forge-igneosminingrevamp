@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+    "structure": "imv:crystalflower",
+    "weight": 100
+  }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1059499884,
+    "separation": 0,
+    "spacing": 1
+  }
+}

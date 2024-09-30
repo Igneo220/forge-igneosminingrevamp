@@ -1,0 +1,6 @@
+{
+  "parent": "igneosminingrevamp:block/pointed_valuenite",
+  "textures": {
+    "cross": "igneosminingrevamp:block/pointed_valuenite_down_middle"
+  }
+}

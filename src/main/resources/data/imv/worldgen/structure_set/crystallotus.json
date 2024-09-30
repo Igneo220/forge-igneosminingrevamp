@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+    "structure": "imv:crystallotus",
+    "weight": 100
+  }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1182342229,
+    "separation": 2,
+    "spacing": 3
+  }
+}

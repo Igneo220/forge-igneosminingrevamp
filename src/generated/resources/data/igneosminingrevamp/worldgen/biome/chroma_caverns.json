@@ -144,18 +144,19 @@
   "features": [
     [],
     [],
-    [],
-    [],
-    [],
-    [],
+    [
+
+    ],
     [],
     [],
     [],
     [
-      "minecraft:forest_flowers",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
+      "igneosminingrevamp:huestone_cluster",
+      "igneosminingrevamp:valuenite_cluster"
+    ],
+    [],
+    [],
+    [
       "minecraft:glow_lichen"
     ]
   ]

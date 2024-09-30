@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+    "structure": "imv:crystalbehemoth",
+    "weight": 100
+  }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 14357618,
+    "separation": 5,
+    "spacing": 6
+  }
+}
