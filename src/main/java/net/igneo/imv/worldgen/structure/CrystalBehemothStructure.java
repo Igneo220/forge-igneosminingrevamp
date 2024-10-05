@@ -2,6 +2,7 @@ package net.igneo.imv.worldgen.structure;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.igneo.imv.worldgen.structure.placement.SetRotJigsawPlacement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
@@ -79,7 +81,16 @@ public class CrystalBehemothStructure extends Structure {
         Random random = new Random();
         BlockPos pos2 = new BlockPos(pos1.getMinBlockX(), random.nextInt(250), pos1.getMinBlockZ());
         NoiseColumn blockReader = pContext.chunkGenerator().getBaseColumn(pos2.getX(), pos2.getZ(),pContext.heightAccessor() ,pContext.randomState());
-
+        Rotation rot = Rotation.getRandom(pContext.random());
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX()+15,pos2.getY(),pos2.getZ()+15);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-15,pos2.getY(),pos2.getZ()+15);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()-15,pos2.getY(),pos2.getZ()-15);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+15,pos2.getY(),pos2.getZ()-15);
+        }
         boolean searching = true;
         int tries = 0;
         int fx = pos2.getX();
@@ -122,7 +133,6 @@ public class CrystalBehemothStructure extends Structure {
                 if (tries > 3) {
                     break;
                 } else {
-                    System.out.println("TRYING NEW LOCATION");
                     ++tries;
                     int tx = 0;
                     int tz = 0;
@@ -148,11 +158,19 @@ public class CrystalBehemothStructure extends Structure {
             }
         }
         if (searching) {
-            System.out.println("PLACE FAILED");
             return Optional.empty();
         }
-        System.out.println("generated at: " + pos2);
-        return JigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter);
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX()-15,pos2.getY(),pos2.getZ()-15);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+15,pos2.getY(),pos2.getZ()-15);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()+15,pos2.getY(),pos2.getZ()+15);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-15,pos2.getY(),pos2.getZ()+15);
+        }
+
+        return SetRotJigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter,rot);
     }
 
     public StructureType<?> type() {

@@ -2,12 +2,14 @@ package net.igneo.imv.worldgen.structure;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.igneo.imv.worldgen.structure.placement.SetRotJigsawPlacement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
@@ -65,7 +67,16 @@ public class CrystalFlowerStructure extends Structure {
         Random random = new Random();
         BlockPos pos2 = new BlockPos(pos1.getMinBlockX(), random.nextInt(250), pos1.getMinBlockZ());
         NoiseColumn blockReader = pContext.chunkGenerator().getBaseColumn(pos2.getX(), pos2.getZ(),pContext.heightAccessor() ,pContext.randomState());
-
+        Rotation rot = Rotation.getRandom(pContext.random());
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX()+5,pos2.getY(),pos2.getZ()+5);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-5,pos2.getY(),pos2.getZ()+5);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()-5,pos2.getY(),pos2.getZ()-5);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+5,pos2.getY(),pos2.getZ()-5);
+        }
         boolean searching = true;
         int tries = 0;
         int fx = pos2.getX();
@@ -109,7 +120,6 @@ public class CrystalFlowerStructure extends Structure {
                     if (tries > 3) {
                         break;
                     } else {
-                        System.out.println("TRYING NEW LOCATION");
                         ++tries;
                         int tx = 0;
                         int tz = 0;
@@ -141,7 +151,6 @@ public class CrystalFlowerStructure extends Structure {
                 if (tries > 3) {
                     break;
                 } else {
-                    System.out.println("TRYING NEW LOCATION");
                     ++tries;
                     int tx = 0;
                     int tz = 0;
@@ -167,11 +176,19 @@ public class CrystalFlowerStructure extends Structure {
             }
         }
         if (searching) {
-            System.out.println("PLACE FAILED");
             return Optional.empty();
         }
-        System.out.println("generated at: " + pos2);
-        return JigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter);
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX()-5,pos2.getY(),pos2.getZ()-5);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+5,pos2.getY(),pos2.getZ()-5);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()+5,pos2.getY(),pos2.getZ()+5);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-5,pos2.getY(),pos2.getZ()+5);
+        }
+
+        return SetRotJigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter,rot);
     }
 
     public StructureType<?> type() {

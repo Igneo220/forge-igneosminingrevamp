@@ -2,7 +2,15 @@ package net.igneo.imv;
 
 import com.mojang.logging.LogUtils;
 import net.igneo.imv.block.ModBlocks;
+import net.igneo.imv.entity.ModEntities;
+import net.igneo.imv.entity.crystalsentry.CrystalSentryRenderer;
+import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyRenderer;
+import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
+import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadRenderer;
+import net.igneo.imv.entity.sundewpede.tail.SundewpedeTailRenderer;
 import net.igneo.imv.item.ModItems;
+import net.igneo.imv.networking.ModMessages;
+import net.igneo.imv.sound.ModSounds;
 import net.igneo.imv.worldgen.ModConfiguredFeatures;
 import net.igneo.imv.worldgen.ModFeatures;
 import net.igneo.imv.worldgen.ModPlacedFeatures;
@@ -11,6 +19,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.DisplayRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.Display;
 import net.minecraftforge.api.distmarker.Dist;
@@ -27,6 +36,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(IMV.MOD_ID)
@@ -44,6 +54,8 @@ public class IMV
         ModBlocks.register(modEventBus);
         ModStructures.register(modEventBus);
         ModFeatures.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -53,7 +65,7 @@ public class IMV
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        ModMessages.register();
     }
 
     // Add the example block item to the building blocks tab
@@ -79,6 +91,11 @@ public class IMV
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOSSY_SATURINIUM.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.POINTED_HUESTONE.get(),RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.POINTED_VALUENITE.get(),RenderType.cutout());
+
+            EntityRenderers.register(ModEntities.CRYSTAL_SENTRY.get(), CrystalSentryRenderer::new);
+            EntityRenderers.register(ModEntities.SUNDEWPEDE_HEAD.get(), SundewpedeHeadRenderer::new);
+            EntityRenderers.register(ModEntities.SUNDEWPEDE_BODY.get(), SundewpedeBodyRenderer::new);
+            EntityRenderers.register(ModEntities.SUNDEWPEDE_TAIL.get(), SundewpedeTailRenderer::new);
         }
     }
 }
