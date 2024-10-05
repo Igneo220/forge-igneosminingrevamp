@@ -2,19 +2,24 @@ package net.igneo.imv.worldgen.structure;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.igneo.imv.worldgen.structure.placement.SetRotJigsawPlacement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.structures.NetherFortressStructure;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Random;
 
@@ -65,6 +70,16 @@ public class CrystalPitcherStructure extends Structure {
         Random random = new Random();
         BlockPos pos2 = new BlockPos(pos1.getMinBlockX(), random.nextInt(250), pos1.getMinBlockZ());
         NoiseColumn blockReader = pContext.chunkGenerator().getBaseColumn(pos2.getX(), pos2.getZ(),pContext.heightAccessor() ,pContext.randomState());
+        Rotation rot = Rotation.getRandom(pContext.random());
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX() +7,pos2.getY(),pos2.getZ()+7);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-7,pos2.getY(),pos2.getZ()+7);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()-7,pos2.getY(),pos2.getZ()-7);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+7,pos2.getY(),pos2.getZ()-7);
+        }
 
         boolean searching = true;
         int tries = 0;
@@ -108,7 +123,6 @@ public class CrystalPitcherStructure extends Structure {
                 if (tries > 3) {
                     break;
                 } else {
-                    System.out.println("TRYING NEW LOCATION");
                     ++tries;
                     int tx = 0;
                     int tz = 0;
@@ -134,11 +148,22 @@ public class CrystalPitcherStructure extends Structure {
             }
         }
         if (searching) {
-            System.out.println("PLACE FAILED");
             return Optional.empty();
+        } else {
+            System.out.println("generated at: " + pos2);
         }
-        System.out.println("generated at: " + pos2);
-        return JigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter);
+
+        if (rot.equals(Rotation.NONE)) {
+            pos2 = new BlockPos(pos2.getX()-7,pos2.getY(),pos2.getZ()-7);
+        } else if (rot.equals(Rotation.CLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()+7,pos2.getY(),pos2.getZ()-7);
+        } else if (rot.equals(Rotation.CLOCKWISE_180)) {
+            pos2 = new BlockPos(pos2.getX()+7,pos2.getY(),pos2.getZ()+7);
+        } else if (rot.equals(Rotation.COUNTERCLOCKWISE_90)) {
+            pos2 = new BlockPos(pos2.getX()-7,pos2.getY(),pos2.getZ()+7);
+        }
+
+        return SetRotJigsawPlacement.addPieces(pContext, this.startPool, this.startJigsawName, this.size, pos2, false, this.projectStartToHeightmap, this.maxDistanceFromCenter,rot);
     }
 
     public StructureType<?> type() {
