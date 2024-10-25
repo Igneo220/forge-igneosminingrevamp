@@ -7,12 +7,22 @@ import software.bernie.geckolib.model.GeoModel;
 
 public class SundewpedeBodyModel extends GeoModel<SundewpedeBodyEntity> {
     private final ResourceLocation model = new ResourceLocation(IMV.MOD_ID, "geo/sundewpedebody.geo.json");
+    private final ResourceLocation model2 = new ResourceLocation(IMV.MOD_ID, "geo/sundewpedebodytwo.geo.json");
+    private final ResourceLocation model3 = new ResourceLocation(IMV.MOD_ID, "geo/sundewpedebodythree.geo.json");
+    private final ResourceLocation model4 = new ResourceLocation(IMV.MOD_ID, "geo/sundewpedebodyfour.geo.json");
     private final ResourceLocation texture = new ResourceLocation(IMV.MOD_ID, "textures/entity/sundewpede.png");
     private final ResourceLocation animations = new ResourceLocation(IMV.MOD_ID, "animations/sundewpedebody.animation.json");
 
 
     @Override
-    public ResourceLocation getModelResource(SundewpedeBodyEntity sundewpedeBodyEntity) {
+    public ResourceLocation getModelResource(SundewpedeBodyEntity entity) {
+        if (entity.r < 0.25) {
+            return this.model2;
+        } else if (entity.r < 0.5) {
+            return this.model3;
+        } else if (entity.r < 0.75) {
+            return this.model4;
+        }
         return this.model;
     }
 

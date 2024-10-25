@@ -1,5 +1,6 @@
 package net.igneo.imv.entity.ai;
 
+import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.sound.ModSounds;
 import net.minecraft.sounds.SoundSource;
@@ -26,6 +27,8 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
         super.start();
         attackDelay = 50;
         ticksUntilNextAttack = 26;
+        System.out.println("setting awake");
+        entity.setAwake(true);
     }
 
     @Override
@@ -59,6 +62,8 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
             }
 
 
+        } else {
+            --entity.moveDelay;
         }
         if (this.ticksUntilNextAttack <= 0 && this.attackDelay <= 0) {
             resetAttackCooldown();
@@ -89,4 +94,13 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
         super.stop();
     }
 
+    @Override
+    public boolean canUse() {
+        return entity.moveDelay > 0 && entity.getTarget() != null && CrystalManager.getDetected().contains(entity.getTarget());
+    }
+
+    @Override
+    public boolean canContinueToUse() {
+        return entity.moveDelay > 0 && entity.getTarget() != null && CrystalManager.getDetected().contains(entity.getTarget());
+    }
 }

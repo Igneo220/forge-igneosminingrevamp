@@ -136,7 +136,7 @@ public class SundewpedeTailEntity extends Monster implements GeoEntity {
             }
         }
         if (this.parent != null && this.parent.isAlive()) {
-            Vec3 behind = parent.position().add(parent.getLookAngle().scale(0.8).reverse());
+            Vec3 behind = parent.position().add(parent.getLookAngle().scale(0.6).reverse());
             Vec3 modPos = new Vec3(this.getX(), behind.y, this.getZ());
             //this.setPos(behind);
 

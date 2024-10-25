@@ -1,0 +1,179 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "whole",
+					"pivot": [0, -5, 0]
+				},
+				{
+					"name": "center",
+					"parent": "whole",
+					"pivot": [0, 3, 0],
+					"cubes": [
+						{"origin": [-4, -1, -4], "size": [8, 8, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leaves",
+					"parent": "whole",
+					"pivot": [0, -1, 0]
+				},
+				{
+					"name": "smallleaves",
+					"parent": "leaves",
+					"pivot": [0, -1, 0],
+					"rotation": [0, -45, 0]
+				},
+				{
+					"name": "leafnorthwest",
+					"parent": "smallleaves",
+					"pivot": [0, -0.16, -2],
+					"cubes": [
+						{"origin": [-2.48, -0.12, -10.92], "size": [5, 2, 8], "pivot": [0, -0.12, -4.2], "rotation": [-42.5, 0, 0], "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "upperleafnorthwest",
+					"parent": "leafnorthwest",
+					"pivot": [0, 4.84, -8],
+					"cubes": [
+						{"origin": [-1.9, -0.12, -14.28], "size": [4, 7, 2], "pivot": [-1.26, -1.8, -13.44], "rotation": [-35, 0, 0], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "leafnortheast",
+					"parent": "smallleaves",
+					"pivot": [-2, -0.16, 0],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [-4.48, -0.12, -8.92], "size": [5, 2, 8], "pivot": [-2, -0.12, -2.2], "rotation": [-42.5, 0, 0], "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "upperleafnortheast",
+					"parent": "leafnortheast",
+					"pivot": [-2, 4.84, -6],
+					"cubes": [
+						{"origin": [-3.9, -0.12, -12.28], "size": [4, 7, 2], "pivot": [-3.26, -1.8, -11.44], "rotation": [-35, 0, 0], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "leafsoutheast",
+					"parent": "smallleaves",
+					"pivot": [0, -0.16, 2],
+					"rotation": [0, 180, 0],
+					"cubes": [
+						{"origin": [-2.48, -0.12, -6.92], "size": [5, 2, 8], "pivot": [0, -0.12, -0.2], "rotation": [-42.5, 0, 0], "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "upperleafsoutheast",
+					"parent": "leafsoutheast",
+					"pivot": [0, 4.84, -4],
+					"cubes": [
+						{"origin": [-1.9, -0.12, -10.28], "size": [4, 7, 2], "pivot": [-1.26, -1.8, -9.44], "rotation": [-35, 0, 0], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "leafsouthwest",
+					"parent": "smallleaves",
+					"pivot": [3, -0.16, 0],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [0.52, -0.12, -7.92], "size": [5, 2, 8], "pivot": [3, -0.12, -1.2], "rotation": [-42.5, 0, 0], "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "upperleafsouthwest",
+					"parent": "leafsouthwest",
+					"pivot": [3, 4.84, -5],
+					"cubes": [
+						{"origin": [1.1, -0.12, -11.28], "size": [4, 7, 2], "pivot": [1.74, -1.8, -10.44], "rotation": [-35, 0, 0], "uv": [0, 58]}
+					]
+				},
+				{
+					"name": "bigleaves",
+					"parent": "leaves",
+					"pivot": [0, -1, 0]
+				},
+				{
+					"name": "leafnorth",
+					"parent": "bigleaves",
+					"pivot": [0, 2, -4],
+					"cubes": [
+						{"origin": [-3, 2, -13], "size": [6, 2, 9], "pivot": [0, 2, -5], "rotation": [-42.5, 0, 0], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "upperleafnorth",
+					"parent": "leafnorth",
+					"pivot": [0, 8, -10],
+					"cubes": [
+						{"origin": [-2.5, 2, -17], "size": [5, 8, 2], "pivot": [-1.5, 0, -16], "rotation": [-35, 0, 0], "uv": [26, 48]}
+					]
+				},
+				{
+					"name": "leafeast",
+					"parent": "bigleaves",
+					"pivot": [-4, 2, 0],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [-7, 2, -9], "size": [6, 2, 9], "pivot": [-4, 2, -1], "rotation": [-42.5, 0, 0], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "upperleafeast",
+					"parent": "leafeast",
+					"pivot": [-4, 8, -6],
+					"cubes": [
+						{"origin": [-6.5, 2, -13], "size": [5, 8, 2], "pivot": [-5.5, 0, -12], "rotation": [-35, 0, 0], "uv": [26, 48]}
+					]
+				},
+				{
+					"name": "leafsouth",
+					"parent": "bigleaves",
+					"pivot": [0, 2, 4],
+					"rotation": [0, 180, 0],
+					"cubes": [
+						{"origin": [-3, 2, -5], "size": [6, 2, 9], "pivot": [0, 2, 3], "rotation": [-42.5, 0, 0], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "upperleafsouth",
+					"parent": "leafsouth",
+					"pivot": [0, 8, -2],
+					"cubes": [
+						{"origin": [-2.5, 2, -9], "size": [5, 8, 2], "pivot": [-1.5, 0, -8], "rotation": [-35, 0, 0], "uv": [26, 48]}
+					]
+				},
+				{
+					"name": "leafwest",
+					"parent": "bigleaves",
+					"pivot": [4, 2, 0],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [1, 2, -9], "size": [6, 2, 9], "pivot": [4, 2, -1], "rotation": [-42.5, 0, 0], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "upperleafwest",
+					"parent": "leafwest",
+					"pivot": [4, 8, -6],
+					"cubes": [
+						{"origin": [1.5, 2, -13], "size": [5, 8, 2], "pivot": [2.5, 0, -12], "rotation": [-35, 0, 0], "uv": [26, 48]}
+					]
+				}
+			]
+		}
+	]
+}

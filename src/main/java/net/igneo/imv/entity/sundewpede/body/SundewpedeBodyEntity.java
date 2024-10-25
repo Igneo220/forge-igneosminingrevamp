@@ -40,6 +40,7 @@ public class SundewpedeBodyEntity extends Monster implements GeoEntity {
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     protected static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     protected static final RawAnimation WALK_ANIM = RawAnimation.begin().thenPlay("walk");
+    public final double r = Math.random();
 
     private boolean walking;
 
@@ -146,7 +147,7 @@ public class SundewpedeBodyEntity extends Monster implements GeoEntity {
             }
         }
         if (this.parent != null && this.parent.isAlive()) {
-            Vec3 behind = parent.position().add(parent.getLookAngle().scale(0.8).reverse());
+            Vec3 behind = parent.position().add(parent.getLookAngle().scale(0.6).reverse());
             Vec3 modPos = new Vec3(this.getX(), behind.y, this.getZ());
             //this.setPos(behind);
 

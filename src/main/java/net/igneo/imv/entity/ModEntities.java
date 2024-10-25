@@ -2,6 +2,9 @@ package net.igneo.imv.entity;
 
 import net.igneo.imv.IMV;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.entity.rafflropter.RafflropterEntity;
+import net.igneo.imv.entity.samaranade.SamaranadeEntity;
+import net.igneo.imv.entity.samaranade.SamaranadeModel;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
 import net.igneo.imv.entity.sundewpede.tail.SundewpedeTailEntity;
@@ -28,6 +31,12 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SundewpedeTailEntity>> SUNDEWPEDE_TAIL =
             ENTITY_TYPES.register("sundewpede_tail", () -> EntityType.Builder.of(SundewpedeTailEntity::new, MobCategory.MONSTER)
                     .sized(0.5f,1f).build("sundewpede_tail"));
+    public static final RegistryObject<EntityType<RafflropterEntity>> RAFFLROPTER =
+            ENTITY_TYPES.register("rafflropter", () -> EntityType.Builder.of(RafflropterEntity::new, MobCategory.MONSTER)
+                    .sized(1f,1f).build("rafflropter"));
+    public static final RegistryObject<EntityType<SamaranadeEntity>> SAMARANADE =
+            ENTITY_TYPES.register("samaranade", () -> EntityType.Builder.of(SamaranadeEntity::new, MobCategory.MONSTER)
+                    .sized(1f,1f).build("samaranade"));
 
     public static void register (IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

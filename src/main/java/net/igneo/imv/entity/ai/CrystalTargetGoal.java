@@ -24,7 +24,7 @@ public class CrystalTargetGoal extends NearestAttackableTargetGoal {
     protected void findTarget() {
         if (!CrystalManager.getDetected().isEmpty()) {
             ServerPlayer closestTarget = null;
-            float lastDist = 50;
+            float lastDist = 100;
             for (ServerPlayer target : CrystalManager.getDetected()) {
                 if (target.distanceTo(entity) < lastDist) {
                     lastDist = target.distanceTo(entity);

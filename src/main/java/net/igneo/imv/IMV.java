@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import net.igneo.imv.block.ModBlocks;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryRenderer;
+import net.igneo.imv.entity.rafflropter.RafflropterRenderer;
+import net.igneo.imv.entity.samaranade.SamaranadeRenderer;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyRenderer;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadRenderer;
@@ -96,6 +98,8 @@ public class IMV
             EntityRenderers.register(ModEntities.SUNDEWPEDE_HEAD.get(), SundewpedeHeadRenderer::new);
             EntityRenderers.register(ModEntities.SUNDEWPEDE_BODY.get(), SundewpedeBodyRenderer::new);
             EntityRenderers.register(ModEntities.SUNDEWPEDE_TAIL.get(), SundewpedeTailRenderer::new);
+            EntityRenderers.register(ModEntities.RAFFLROPTER.get(), RafflropterRenderer::new);
+            EntityRenderers.register(ModEntities.SAMARANADE.get(), SamaranadeRenderer::new);
         }
     }
 }

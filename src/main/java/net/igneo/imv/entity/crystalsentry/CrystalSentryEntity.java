@@ -2,6 +2,7 @@ package net.igneo.imv.entity.crystalsentry;
 
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ai.CrystalSentryAttackGoal;
+import net.igneo.imv.entity.ai.CrystalSentryMoveGoal;
 import net.igneo.imv.entity.ai.CrystalTargetGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -14,6 +15,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -26,6 +28,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -41,8 +44,12 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
     protected static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenLoop("idle");
     protected static final RawAnimation BITE_ANIM = RawAnimation.begin().thenPlay("bite");
     protected static final RawAnimation HIDE_ANIM = RawAnimation.begin().thenPlay("hide");
+    protected static final RawAnimation HIDING_ANIM = RawAnimation.begin().thenLoop("hiddenidle");
 
     private long idleSoundDelay = 0;
+    private boolean hiding;
+    public int moveDelay = 100;
+    public int moveAnimDelay = 30;
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
@@ -77,6 +84,7 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
         if (!this.isAwake()) {
             return event.setAndContinue(HIDE_ANIM);
         } else {
+            hiding = false;
             return event.setAndContinue(IDLE_ANIM);
         }
     }
@@ -85,44 +93,60 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.geoCache;
     }
-    private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> AWAKE =
-            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> TRANSITIONING =
-            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
     public CrystalSentryEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     private int idleAnimationTimeout = 0;
     public int attackAnimationTimeout = 0;
-    private Vec3 planted = null;
+    public Vec3 planted = null;
 
     @Override
     public void tick() {
         super.tick();
         if (!this.level().isClientSide) {
-            ServerLevel level = (ServerLevel) this.level();
-            for (ServerPlayer target : CrystalManager.getDetected()) {
-                if (target.distanceTo(this) <= 50) {
-
-                    break;
-                }
+            if (moveDelay < 0) {
+                moveDelay = 0;
             }
             if (this.getTarget() != null) {
-                entityData.set(AWAKE, true);
+                ServerLevel level = (ServerLevel) this.level();
+                boolean nullify = true;
+                for (ServerPlayer target : CrystalManager.getDetected()) {
+                    if (target == this.getTarget()) {
+                        nullify = false;
+                        break;
+                    }
+                }
+                if (nullify) {
+                    this.setTarget(null);
+                    entityData.set(AWAKE, false);
+                }
             } else {
                 entityData.set(AWAKE, false);
             }
         }
         if (this.planted == null) {
             this.planted = this.position();
+        } else if (!this.getRoot().equals(BlockPos.ZERO)) {
+            this.planted = this.getRoot().getCenter().add(0,-0.5,0);
         }
         this.setPos(this.planted);
 
         if(this.level().isClientSide) {
         }
     }
+
+    private static final EntityDataAccessor<Boolean> ATTACKING =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> AWAKE =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> TRANSITIONING =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<BlockPos> ROOT =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.BLOCK_POS);
+    private static final EntityDataAccessor<Integer> MOVEDELAY =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> MOVEANIMDELAY =
+            SynchedEntityData.defineId(CrystalSentryEntity.class, EntityDataSerializers.INT);
 
     public void setAttacking(boolean attacking) {
         this.entityData.set(ATTACKING, attacking);
@@ -140,6 +164,30 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
         return this.entityData.get(TRANSITIONING);
     }
 
+    public void setRoot(BlockPos pos) {
+        this.entityData.set(ROOT, pos);
+    }
+
+    public BlockPos getRoot() {
+        return this.entityData.get(ROOT);
+    }
+
+    public void setMoveDelay(int delay) {
+        this.entityData.set(MOVEDELAY, delay);
+    }
+
+    public int getMoveDelay() {
+        return this.entityData.get(MOVEDELAY);
+    }
+
+    public void setMoveAnimDelay(int delay) {
+        this.entityData.set(MOVEANIMDELAY, delay);
+    }
+
+    public int getMoveAnimDelay() {
+        return this.entityData.get(MOVEANIMDELAY);
+    }
+
     public void setAwake(boolean transitioning) {
         this.entityData.set(AWAKE, transitioning);
     }
@@ -154,21 +202,26 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
         this.entityData.define(ATTACKING, false);
         this.entityData.define(TRANSITIONING, false);
         this.entityData.define(AWAKE, false);
+        this.entityData.define(ROOT, BlockPos.ZERO);
     }
 
     @Override
     public boolean hurt(DamageSource pSource, float pAmount) {
-        if (pSource.is(DamageTypes.PLAYER_ATTACK) || pSource.is(DamageTypes.PLAYER_EXPLOSION)) {
+        if (pSource.is(DamageTypes.PLAYER_ATTACK) || pSource.is(DamageTypes.PLAYER_EXPLOSION) && pSource.getEntity() instanceof ServerPlayer) {
             if (!this.level().isClientSide) {
                 CrystalManager.detect((ServerPlayer) pSource.getEntity());
+                this.setTarget((LivingEntity) pSource.getEntity());
             }
+        }
+        if (pSource.is(DamageTypes.EXPLOSION) || pSource.is(DamageTypes.PLAYER_EXPLOSION)) {
+            return false;
         }
         return super.hurt(pSource, pAmount);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new HurtByTargetGoal(this, Player.class));
+        this.goalSelector.addGoal(1, new CrystalSentryMoveGoal(this));
         this.goalSelector.addGoal(2, new CrystalSentryAttackGoal(this, 0, true));
 
         this.targetSelector.addGoal(1, new CrystalTargetGoal(this, Player.class, false));

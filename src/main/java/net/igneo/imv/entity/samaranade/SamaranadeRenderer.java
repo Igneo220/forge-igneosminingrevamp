@@ -1,13 +1,13 @@
-package net.igneo.imv.entity.sundewpede.body;
+package net.igneo.imv.entity.samaranade;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
-public class SundewpedeBodyRenderer extends GeoEntityRenderer<SundewpedeBodyEntity> {
-    public SundewpedeBodyRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new SundewpedeBodyModel());
+public class SamaranadeRenderer extends GeoEntityRenderer<SamaranadeEntity> {
+    public SamaranadeRenderer(EntityRendererProvider.Context renderManager) {
+        super(renderManager, new SamaranadeModel());
         addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

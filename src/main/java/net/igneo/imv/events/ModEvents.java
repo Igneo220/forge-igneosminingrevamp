@@ -25,6 +25,7 @@ public class ModEvents {
             }
             if (playerDetected) {
                 if (event.player.isCreative()) {
+                    System.out.println("forgiving!");
                     CrystalManager.forgive((ServerPlayer) event.player);
                 } else {
                     for (ServerPlayer player : level.players()) {

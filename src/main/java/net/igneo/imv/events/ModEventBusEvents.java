@@ -3,6 +3,7 @@ package net.igneo.imv.events;
 import net.igneo.imv.IMV;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -17,6 +18,8 @@ public class ModEventBusEvents {
         event.put(ModEntities.SUNDEWPEDE_HEAD.get(), SundewpedeHeadEntity.createAttributes().build());
         event.put(ModEntities.SUNDEWPEDE_BODY.get(), SundewpedeBodyEntity.createAttributes().build());
         event.put(ModEntities.SUNDEWPEDE_TAIL.get(), SundewpedeBodyEntity.createAttributes().build());
+        event.put(ModEntities.RAFFLROPTER.get(), RafflropterEntity.createAttributes().build());
+        event.put(ModEntities.SAMARANADE.get(), RafflropterEntity.createAttributes().build());
     }
 
 
