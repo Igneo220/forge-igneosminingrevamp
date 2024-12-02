@@ -2,14 +2,17 @@ package net.igneo.imv.entity;
 
 import net.igneo.imv.IMV;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.entity.florachnid.FlorachnidEntity;
 import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.igneo.imv.entity.samaranade.SamaranadeEntity;
 import net.igneo.imv.entity.samaranade.SamaranadeModel;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
 import net.igneo.imv.entity.sundewpede.tail.SundewpedeTailEntity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,8 +40,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<SamaranadeEntity>> SAMARANADE =
             ENTITY_TYPES.register("samaranade", () -> EntityType.Builder.of(SamaranadeEntity::new, MobCategory.MONSTER)
                     .sized(1f,1f).build("samaranade"));
+    public static final RegistryObject<EntityType<FlorachnidEntity>> FLORACHNID =
+            ENTITY_TYPES.register("florachnid", () -> EntityType.Builder.of(FlorachnidEntity::new, MobCategory.MONSTER)
+                    .sized(1.5f,1.5f).build("florachnid"));
 
     public static void register (IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
+
+
 }

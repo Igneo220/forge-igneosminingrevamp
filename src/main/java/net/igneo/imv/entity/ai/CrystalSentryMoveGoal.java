@@ -45,12 +45,21 @@ public class CrystalSentryMoveGoal extends Goal {
             ServerLevel level = (ServerLevel) entity.level();
             while (searching) {
                 int yChecks = 0;
+                if (Math.random() > 0.5) {
+                    d0 = (int) (Math.random() * 4);
+                } else {
+                    d0 = (int) (Math.random() * -4);
+                }
+                if (Math.random() > 0.5) {
+                    d2 = (int) (Math.random() * 4);
+                } else {
+                    d2 = (int) (Math.random() * -4);
+                }
+                nPos = new BlockPos(oPos.getX() + d0, oPos.getY() + d1,oPos.getZ() + d2);
+                ++checks;
                 while (yChecks < 5) {
-                    System.out.println(level.getBlockState(nPos).getBlock());
                     if (level.getBlockState(nPos).is(BlockTags.REPLACEABLE)) {
-                        System.out.println(level.getBlockState(nPos.below()).getBlock());
                         if (!level.getBlockState(nPos.below()).is(BlockTags.REPLACEABLE)) {
-                            System.out.println("success!");
                             nPos = new BlockPos(oPos.getX() + d0, oPos.getY() + d1,oPos.getZ() + d2);
                             searching = false;
                             break;
@@ -64,21 +73,6 @@ public class CrystalSentryMoveGoal extends Goal {
                         ++d1;
                         nPos = new BlockPos(oPos.getX() + d0, oPos.getY() + d1,oPos.getZ() + d2);
                     }
-                }
-                if (yChecks == 5) {
-                    System.out.println("Position failed! Starting again");
-                    if (Math.random() > 0.5) {
-                        d0 = (int) (Math.random() * 4);
-                    } else {
-                        d0 = (int) (Math.random() * -4);
-                    }
-                    if (Math.random() > 0.5) {
-                        d2 = (int) (Math.random() * 4);
-                    } else {
-                        d2 = (int) (Math.random() * -4);
-                    }
-                    nPos = new BlockPos(oPos.getX() + d0, oPos.getY() + d1,oPos.getZ() + d2);
-                    ++checks;
                 }
                 if (checks >= 5) {
                     nPos = oPos;

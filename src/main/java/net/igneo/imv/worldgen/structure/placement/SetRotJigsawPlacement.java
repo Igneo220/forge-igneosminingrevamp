@@ -49,7 +49,6 @@ public class SetRotJigsawPlacement {
         LevelHeightAccessor $$11 = pContext.heightAccessor();
         WorldgenRandom $$12 = pContext.random();
         Registry<StructureTemplatePool> $$13 = $$8.registryOrThrow(Registries.TEMPLATE_POOL);
-        System.out.println(rot);
         StructureTemplatePool $$15 = (StructureTemplatePool)pStartPool.value();
         StructurePoolElement $$16 = $$15.getRandomTemplate($$12);
         if ($$16 == EmptyPoolElement.INSTANCE) {

@@ -1,5 +1,6 @@
 package net.igneo.imv.entity.crystalsentry;
 
+import net.igneo.imv.block.ModBlocks;
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ai.CrystalSentryAttackGoal;
 import net.igneo.imv.entity.ai.CrystalSentryMoveGoal;
@@ -12,10 +13,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
@@ -23,10 +28,13 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -55,7 +63,6 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "idle", 6,this::animController));
     }
-
     protected <E extends GeoEntity> PlayState animController(final AnimationState<E> event) {
         if (event.getController().getAnimationState().equals(AnimationController.State.TRANSITIONING)) {
             this.setTransitioning(true);
@@ -70,13 +77,11 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
             return event.setAndContinue(BITE_ANIM);
         }
         if (event.isCurrentAnimation(IDLE_ANIM) && !event.getController().getAnimationState().equals(AnimationController.State.TRANSITIONING) && !event.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            //System.out.println(this.level());
             if (idleSoundDelay == 0) {
                 idleSoundDelay = System.currentTimeMillis() - 530;
             }
             if (System.currentTimeMillis() >= idleSoundDelay + 1000) {
                 //this.level().playSound(null,this.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.HOSTILE);
-                System.out.println("BITE!!");
                 this.level().playLocalSound(this.getX(),this.getY(),this.getZ(),SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.HOSTILE,1,1,false);
                 idleSoundDelay = System.currentTimeMillis();
             }
@@ -87,6 +92,12 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
             hiding = false;
             return event.setAndContinue(IDLE_ANIM);
         }
+    }
+
+    public static boolean canSpawnOnGround(EntityType<CrystalSentryEntity> entityType, ServerLevelAccessor level,
+                                           MobSpawnType category, BlockPos pos, RandomSource random) {
+        // Ensure the mob spawns only on solid blocks that are near the ground
+        return !level.getBlockState(pos.below()).isAir() && level.getBlockState(pos).isAir();
     }
 
     @Override
@@ -104,11 +115,16 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
     public void tick() {
         super.tick();
         if (!this.level().isClientSide) {
+            ServerLevel level = (ServerLevel) this.level();
+            if ((level.getBlockState(this.blockPosition().below()).is(BlockTags.REPLACEABLE))) {
+                System.out.println("moving down");
+                setRoot(this.blockPosition().below());
+            }
             if (moveDelay < 0) {
                 moveDelay = 0;
             }
             if (this.getTarget() != null) {
-                ServerLevel level = (ServerLevel) this.level();
+
                 boolean nullify = true;
                 for (ServerPlayer target : CrystalManager.getDetected()) {
                     if (target == this.getTarget()) {
@@ -120,6 +136,7 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
                     this.setTarget(null);
                     entityData.set(AWAKE, false);
                 }
+
             } else {
                 entityData.set(AWAKE, false);
             }
@@ -133,6 +150,12 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
 
         if(this.level().isClientSide) {
         }
+
+
+    }
+
+    @Override
+    protected void checkFallDamage(double pY, boolean pOnGround, BlockState pState, BlockPos pPos) {
     }
 
     private static final EntityDataAccessor<Boolean> ATTACKING =
@@ -229,14 +252,14 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 20D)
+                .add(Attributes.MAX_HEALTH, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0D)
                 .add(Attributes.ARMOR_TOUGHNESS, 10D)
                 .add(Attributes.ARMOR, 10D)
-                .add(Attributes.ATTACK_DAMAGE, 10D)
+                .add(Attributes.ATTACK_DAMAGE, 5D)
                 .add(Attributes.ATTACK_KNOCKBACK, -0.5D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 999999999D)
-                .add(Attributes.FOLLOW_RANGE, 50D);
+                .add(Attributes.FOLLOW_RANGE, 20D);
     }
 
 

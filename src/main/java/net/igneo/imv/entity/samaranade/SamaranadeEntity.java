@@ -89,7 +89,7 @@ public class SamaranadeEntity extends Monster implements GeoEntity {
         if (fuse == 0) {
             if (this.level() instanceof ServerLevel) {
                 ServerLevel level = (ServerLevel) this.level();
-                level.explode(this,this.getX(),this.getY(),this.getZ(),4, Level.ExplosionInteraction.NONE);
+                level.explode(this,this.getX(),this.getY(),this.getZ(),2, Level.ExplosionInteraction.NONE);
             }
             this.discard();
         }

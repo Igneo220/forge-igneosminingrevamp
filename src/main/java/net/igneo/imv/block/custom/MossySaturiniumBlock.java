@@ -27,18 +27,17 @@ public class MossySaturiniumBlock extends SpreadingSnowyDirtBlock implements Bon
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        System.out.println("just ticking!!!");
-        if (!pPos.above().equals(BlockTags.REPLACEABLE)) {
-            pLevel.setBlock(pPos, ModBlocks.SATURINIUM.get().defaultBlockState(),2);
-        }
-        super.tick(pState, pLevel, pPos, pRandom);
+    public boolean isRandomlyTicking(BlockState pState) {
+        return true;
     }
+
 
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        System.out.println("randomly ticking!!!");
         super.randomTick(pState, pLevel, pPos, pRandom);
+        if (!pLevel.getBlockState(pPos.above()).is(BlockTags.REPLACEABLE)) {
+            pLevel.setBlock(pPos, ModBlocks.SATURINIUM.get().defaultBlockState(),2);
+        }
     }
 
     @Override

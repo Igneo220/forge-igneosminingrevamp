@@ -40,6 +40,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.VALUENITE.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.HUESTONE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.IRON_SATURINIUM_ORE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.COAL_SATURINIUM_ORE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.COPPER_SATURINIUM_ORE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.ZINC_SATURINIUM_ORE.get());
 
         this.tag(BlockTags.DRIPSTONE_REPLACEABLE)
                 .add(ModBlocks.MOSSY_SATURINIUM.get())

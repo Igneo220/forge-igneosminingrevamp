@@ -27,7 +27,6 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
         super.start();
         attackDelay = 50;
         ticksUntilNextAttack = 26;
-        System.out.println("setting awake");
         entity.setAwake(true);
     }
 

@@ -1,9 +1,7 @@
 package net.igneo.imv.block;
 
 import net.igneo.imv.IMV;
-import net.igneo.imv.block.custom.MossySaturiniumBlock;
-import net.igneo.imv.block.custom.PointedHuestoneBlock;
-import net.igneo.imv.block.custom.PointedValueniteBlock;
+import net.igneo.imv.block.custom.*;
 import net.igneo.imv.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -44,6 +42,20 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> IRON_SATURINIUM_ORE = registerBlock("iron_saturinium_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> COPPER_SATURINIUM_ORE = registerBlock("copper_saturinium_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> ZINC_SATURINIUM_ORE = registerBlock("zinc_saturinium_ore",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> MOD_PORTAL = registerBlock("teleporter",
+            () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15)));
+    public static final RegistryObject<Block> CRYSTAL_HEART = registerBlock("crystal_heart",
+            () -> new CrystalHeartBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(12)));
+    public static final RegistryObject<Block> CRYSTAL_ARMOR = registerBlock("crystal_armor",
+            () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(10)));
+    public static final RegistryObject<Block> CRYSTAL_PLATES = registerBlock("crystal_plates",
+            () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(12)));
+    public static final RegistryObject<Block> CRYSTAL_SCALES = registerBlock("crystal_scales",
+            () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(8)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

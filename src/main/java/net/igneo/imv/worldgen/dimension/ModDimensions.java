@@ -2,6 +2,8 @@ package net.igneo.imv.worldgen.dimension;
 
 import com.mojang.datafixers.util.Pair;
 import net.igneo.imv.IMV;
+import net.igneo.imv.worldgen.dimension.effects.ModDimensionSpecialEffects;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -16,6 +18,9 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
+import team.lodestar.lodestone.handlers.ScreenshakeHandler;
+import team.lodestar.lodestone.network.screenshake.ScreenshakePacket;
+import team.lodestar.lodestone.registry.common.LodestonePacketRegistry;
 
 import java.util.List;
 import java.util.OptionalLong;

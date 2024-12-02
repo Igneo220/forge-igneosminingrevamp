@@ -3,6 +3,10 @@
     "igneosminingrevamp:mossy_saturinium",
     "igneosminingrevamp:saturinium",
     "igneosminingrevamp:valuenite",
-    "igneosminingrevamp:huestone"
+    "igneosminingrevamp:huestone",
+    "igneosminingrevamp:iron_saturinium_ore",
+    "igneosminingrevamp:coal_saturinium_ore",
+    "igneosminingrevamp:copper_saturinium_ore",
+    "igneosminingrevamp:zinc_saturinium_ore"
   ]
 }

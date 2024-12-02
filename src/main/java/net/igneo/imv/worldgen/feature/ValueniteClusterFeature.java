@@ -175,7 +175,7 @@ public class ValueniteClusterFeature extends Feature<ValueniteClusterConfigurati
     }
 
     public static boolean isValueniteBase(BlockState pState) {
-        return pState.is(ModBlocks.SATURINIUM.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE) || pState.is(ModBlocks.MOSSY_SATURINIUM.get());
+        return pState.is(ModBlocks.VALUENITE.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE) || pState.is(ModBlocks.VALUENITE.get());
     }
 
     private boolean isLava(LevelReader pLevel, BlockPos pPos) {
@@ -237,7 +237,7 @@ public class ValueniteClusterFeature extends Feature<ValueniteClusterConfigurati
     protected static boolean placeValueniteBlockIfPossible(LevelAccessor pLevel, BlockPos pPos) {
         BlockState $$2 = pLevel.getBlockState(pPos);
         if ($$2.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
-            pLevel.setBlock(pPos, ModBlocks.SATURINIUM.get().defaultBlockState(), 2);
+            pLevel.setBlock(pPos, ModBlocks.VALUENITE.get().defaultBlockState(), 2);
             return true;
         } else {
             return false;

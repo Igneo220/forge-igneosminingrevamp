@@ -3,6 +3,7 @@ package net.igneo.imv.events;
 import net.igneo.imv.IMV;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.entity.florachnid.FlorachnidEntity;
 import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
@@ -20,6 +21,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.SUNDEWPEDE_TAIL.get(), SundewpedeBodyEntity.createAttributes().build());
         event.put(ModEntities.RAFFLROPTER.get(), RafflropterEntity.createAttributes().build());
         event.put(ModEntities.SAMARANADE.get(), RafflropterEntity.createAttributes().build());
+        event.put(ModEntities.FLORACHNID.get(), FlorachnidEntity.createAttributes().build());
     }
 
 

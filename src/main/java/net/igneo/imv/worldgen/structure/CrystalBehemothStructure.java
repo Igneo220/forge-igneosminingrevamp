@@ -47,7 +47,7 @@ public class CrystalBehemothStructure extends Structure {
                     Codec.intRange(1, 128).fieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter)
             ).apply(instance, CrystalBehemothStructure::new)).codec();
 
-    private final Holder<StructureTemplatePool> startPool;
+    public final Holder<StructureTemplatePool> startPool;
     private final Optional<ResourceLocation> startJigsawName;
     private final int size;
     private final HeightProvider startHeight;

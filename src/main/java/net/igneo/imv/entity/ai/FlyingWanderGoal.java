@@ -34,7 +34,6 @@ import java.util.EnumSet;
          if (vec3 != null) {
              entity.getNavigation().moveTo(entity.getNavigation().createPath(BlockPos.containing(vec3), 1), 1.0);
              //entity.getMoveControl().setWantedPosition(vec3.x,vec3.y,vec3.z,1);
-             System.out.println(vec3);
          }
      }
 

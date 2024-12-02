@@ -1,5 +1,6 @@
 package net.igneo.imv.networking;
 
+import net.igneo.imv.networking.packet.ScreenshakeS2CPacket;
 import net.igneo.imv.networking.packet.SundewpedeSyncS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +21,7 @@ public class ModMessages {
     }
 
     public static void register() {
-        SimpleChannel net = NetworkRegistry.ChannelBuilder.named(new ResourceLocation("icv", "messages")).networkProtocolVersion(() -> {
+        SimpleChannel net = NetworkRegistry.ChannelBuilder.named(new ResourceLocation("imv", "messages")).networkProtocolVersion(() -> {
             return "1.0";
         }).clientAcceptedVersions((s) -> {
             return true;
@@ -32,6 +33,11 @@ public class ModMessages {
                 .decoder(SundewpedeSyncS2CPacket::new)
                 .encoder(SundewpedeSyncS2CPacket::toBytes)
                 .consumerMainThread(SundewpedeSyncS2CPacket::handle)
+                .add();
+        net.messageBuilder(ScreenshakeS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(ScreenshakeS2CPacket::new)
+                .encoder(ScreenshakeS2CPacket::toBytes)
+                .consumerMainThread(ScreenshakeS2CPacket::handle)
                 .add();
     }
 

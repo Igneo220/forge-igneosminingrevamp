@@ -26,7 +26,6 @@ public class SundewpedePanicGoal extends PanicGoal {
             for (ServerPlayer target : CrystalManager.getDetected()) {
                 if (target.distanceTo(entity) <= 15 && target != entity) {
                     detected = true;
-                    System.out.println("RUNNING");
                     this.panicTime = 10;
                     break;
                 }
@@ -34,14 +33,12 @@ public class SundewpedePanicGoal extends PanicGoal {
             for (ServerPlayer target : level.players()) {
                 if (target.distanceTo(entity) <= 5 && target != entity) {
                     detected = true;
-                    System.out.println("RUNNING");
                     this.panicTime = 50;
                     CrystalManager.detect(target);
                     break;
                 }
             }
             if (panicTime > 0) {
-                System.out.println(panicTime);
                 --panicTime;
             }
         }

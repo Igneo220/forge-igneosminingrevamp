@@ -180,7 +180,7 @@ public class HuestoneClusterFeature extends Feature<HuestoneClusterConfiguration
     }
 
     public static boolean isHuestoneBase(BlockState pState) {
-        return pState.is(ModBlocks.SATURINIUM.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE) || pState.is(ModBlocks.MOSSY_SATURINIUM.get());
+        return pState.is(ModBlocks.HUESTONE.get()) || pState.is(BlockTags.DRIPSTONE_REPLACEABLE) || pState.is(ModBlocks.HUESTONE.get());
     }
 
     private boolean isLava(LevelReader pLevel, BlockPos pPos) {
@@ -242,7 +242,7 @@ public class HuestoneClusterFeature extends Feature<HuestoneClusterConfiguration
     protected static boolean placeHuestoneBlockIfPossible(LevelAccessor pLevel, BlockPos pPos) {
         BlockState $$2 = pLevel.getBlockState(pPos);
         if ($$2.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
-            pLevel.setBlock(pPos, ModBlocks.SATURINIUM.get().defaultBlockState(), 2);
+            pLevel.setBlock(pPos, ModBlocks.HUESTONE.get().defaultBlockState(), 2);
             return true;
         } else {
             return false;

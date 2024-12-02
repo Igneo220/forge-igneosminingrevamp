@@ -3,11 +3,15 @@ package net.igneo.imv.entity.sundewpede.head;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.ai.CrystalSentryAttackGoal;
 import net.igneo.imv.entity.ai.SundewpedePanicGoal;
+import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.tail.SundewpedeTailEntity;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,10 +23,17 @@ import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -45,6 +56,12 @@ public class SundewpedeHeadEntity extends Monster implements GeoEntity {
         super(pEntityType, pLevel);
     }
 
+    public static boolean canSpawnOnGround(EntityType<SundewpedeHeadEntity> entityType, ServerLevelAccessor level,
+                                           MobSpawnType category, BlockPos pos, RandomSource random) {
+        // Ensure the mob spawns only on solid blocks that are near the ground
+        return !level.getBlockState(pos.below()).isAir() && level.getBlockState(pos).isAir();
+    }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "idle", 6,this::animController));
@@ -54,6 +71,7 @@ public class SundewpedeHeadEntity extends Monster implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.geoCache;
     }
+
 
     protected <E extends GeoEntity> PlayState animController(final AnimationState<E> event) {
         if (event.isMoving()) {
@@ -111,7 +129,7 @@ public class SundewpedeHeadEntity extends Monster implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 40D)
+                .add(Attributes.MAX_HEALTH, 20D)
                 .add(Attributes.MOVEMENT_SPEED, 0.5D)
                 .add(Attributes.ARMOR_TOUGHNESS, 10D)
                 .add(Attributes.ARMOR, 10D)

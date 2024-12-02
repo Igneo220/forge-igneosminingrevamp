@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.DripstoneClusterConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -25,9 +26,13 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUESTONE_CLUSTER_KEY = registerKey("huestone_cluster");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VALUENITE_CLUSTER_KEY = registerKey("valuenite_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> COAL_SATURINIUM_ORE_KEY = registerKey("coal_saturinium_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> IRON_SATURINIUM_ORE_KEY = registerKey("iron_saturinium_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> COPPER_SATURINIUM_ORE_KEY = registerKey("copper_saturinium_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ZINC_SATURINIUM_ORE_KEY = registerKey("zinc_saturinium_ore");
 
     public static void boostrap(BootstapContext<ConfiguredFeature<?,?>> context) {
-        RuleTest spikeReplacable = new BlockMatchTest(ModBlocks.SATURINIUM.get());
+        RuleTest oreReplaceable = new BlockMatchTest(ModBlocks.SATURINIUM.get());
 
         FeatureUtils.register(context, HUESTONE_CLUSTER_KEY, ModFeatures.HUESTONE_CLUSTER.get(), new HuestoneClusterConfiguration(
                 12,
@@ -53,6 +58,20 @@ public class ModConfiguredFeatures {
                 0.1F,
                 3,
                 8));
+
+        List<OreConfiguration.TargetBlockState> CoalSaturiniumOre = List.of(OreConfiguration.target(oreReplaceable,
+                        ModBlocks.COAL_SATURINIUM_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> IronSaturiniumOre = List.of(OreConfiguration.target(oreReplaceable,
+                ModBlocks.IRON_SATURINIUM_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> CopperSaturiniumOre = List.of(OreConfiguration.target(oreReplaceable,
+                ModBlocks.COPPER_SATURINIUM_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> ZincSaturiniumOre = List.of(OreConfiguration.target(oreReplaceable,
+                ModBlocks.ZINC_SATURINIUM_ORE.get().defaultBlockState()));
+
+        register(context, COAL_SATURINIUM_ORE_KEY, Feature.ORE, new OreConfiguration(CoalSaturiniumOre, 2));
+        register(context, IRON_SATURINIUM_ORE_KEY, Feature.ORE, new OreConfiguration(IronSaturiniumOre, 5));
+        register(context, COPPER_SATURINIUM_ORE_KEY, Feature.ORE, new OreConfiguration(CopperSaturiniumOre, 9));
+        register(context, ZINC_SATURINIUM_ORE_KEY, Feature.ORE, new OreConfiguration(ZincSaturiniumOre, 2));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

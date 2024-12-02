@@ -1,5 +1,6 @@
 package net.igneo.imv.entity.ai;
 
+import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.minecraft.core.BlockPos;
@@ -23,18 +24,17 @@ public class RafflAttackGoal extends Goal {
     }
 
     public boolean canUse() {
-        return entity.getNavigation().isDone() && entity.getTarget() != null && entity.getStamina() > 0;
+        return entity.getNavigation().isDone() && entity.getTarget() != null && entity.getStamina() > 0 && CrystalManager.getDetected().contains(entity.getTarget());
     }
 
     public boolean canContinueToUse() {
-        return entity.getNavigation().isInProgress() && !entity.getNavigation().isStuck() && entity.getTarget() != null && entity.getStamina() > 0;
+        return entity.getNavigation().isInProgress() && !entity.getNavigation().isStuck() && entity.getTarget() != null && entity.getStamina() > 0 && CrystalManager.getDetected().contains(entity.getTarget());
     }
 
     public void start() {
         Vec3 vec3 = entity.getTarget().position().add(0,6,0);
         entity.getNavigation().moveTo(entity.getNavigation().createPath(BlockPos.containing(vec3), 4), 1.0);
         //entity.getMoveControl().setWantedPosition(vec3.x,vec3.y,vec3.z,1);
-        System.out.println(vec3);
     }
 
     @Override

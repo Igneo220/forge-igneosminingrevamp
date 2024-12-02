@@ -28,6 +28,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LUMINIDE.get());
         this.dropSelf(ModBlocks.COAL_SATURINIUM_ORE.get());
         this.dropSelf(ModBlocks.IRON_SATURINIUM_ORE.get());
+        this.dropSelf(ModBlocks.COPPER_SATURINIUM_ORE.get());
+        this.dropSelf(ModBlocks.ZINC_SATURINIUM_ORE.get());
+        this.dropSelf(ModBlocks.MOD_PORTAL.get());
+        this.dropSelf(ModBlocks.CRYSTAL_HEART.get());
+        this.dropSelf(ModBlocks.CRYSTAL_ARMOR.get());
+        this.dropSelf(ModBlocks.CRYSTAL_PLATES.get());
+        this.dropSelf(ModBlocks.CRYSTAL_SCALES.get());
     }
 
     @Override

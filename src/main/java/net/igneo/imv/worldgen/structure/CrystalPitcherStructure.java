@@ -150,7 +150,6 @@ public class CrystalPitcherStructure extends Structure {
         if (searching) {
             return Optional.empty();
         } else {
-            System.out.println("generated at: " + pos2);
         }
 
         if (rot.equals(Rotation.NONE)) {

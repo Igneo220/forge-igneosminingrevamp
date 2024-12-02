@@ -3,6 +3,7 @@ package net.igneo.imv.entity.rafflropter;
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ai.*;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -10,10 +11,12 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
@@ -30,6 +33,7 @@ import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.example.entity.BatEntity;
@@ -86,6 +90,12 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
 
     }
 
+    public static boolean canSpawnOnGround(EntityType<RafflropterEntity> entityType, ServerLevelAccessor level,
+                                           MobSpawnType category, BlockPos pos, RandomSource random) {
+        // Ensure the mob spawns only on solid blocks that are near the ground
+        return !level.getBlockState(pos.below()).isAir() && level.getBlockState(pos).isAir();
+    }
+
     @Override
     public MoveControl getMoveControl() {
         return super.getMoveControl();
@@ -114,7 +124,7 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 20D)
+                .add(Attributes.MAX_HEALTH, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0.5D)
                 .add(Attributes.FLYING_SPEED, 0.7D)
                 .add(Attributes.ARMOR_TOUGHNESS, 10D)
@@ -122,7 +132,7 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
                 .add(Attributes.ATTACK_DAMAGE, 0D)
                 .add(Attributes.ATTACK_KNOCKBACK, -0.5D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, -3D)
-                .add(Attributes.FOLLOW_RANGE, 100D);
+                .add(Attributes.FOLLOW_RANGE, 50D);
     }
 
     @Override
@@ -154,7 +164,6 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
 
     @Override
     public void tick() {
-        System.out.println(this.onGround());
         if (this.getStamina() == 0) {
             this.addDeltaMovement(new Vec3(0, -0.03, 0));
         }
@@ -173,6 +182,7 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
     public boolean isAttacking() {
         return this.entityData.get(ATTACKING);
     }
+
     public void addStamina(int stamina) {
         this.entityData.set(STAMINA, this.entityData.get(STAMINA) + stamina);
     }

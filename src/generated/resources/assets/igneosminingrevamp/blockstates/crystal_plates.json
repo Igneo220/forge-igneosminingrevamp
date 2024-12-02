@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "imv:block/crystal_plates_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "imv:block/crystal_plates"
+    },
+    "axis=z": {
+      "model": "imv:block/crystal_plates_horizontal",
+      "x": 90
+    }
+  }
+}

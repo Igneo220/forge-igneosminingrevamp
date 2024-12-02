@@ -3,7 +3,11 @@ package net.igneo.imv;
 import com.mojang.logging.LogUtils;
 import net.igneo.imv.block.ModBlocks;
 import net.igneo.imv.entity.ModEntities;
+import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryRenderer;
+import net.igneo.imv.entity.florachnid.FlorachnidEntity;
+import net.igneo.imv.entity.florachnid.FlorachnidRenderer;
+import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.igneo.imv.entity.rafflropter.RafflropterRenderer;
 import net.igneo.imv.entity.samaranade.SamaranadeRenderer;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyRenderer;
@@ -16,6 +20,8 @@ import net.igneo.imv.sound.ModSounds;
 import net.igneo.imv.worldgen.ModConfiguredFeatures;
 import net.igneo.imv.worldgen.ModFeatures;
 import net.igneo.imv.worldgen.ModPlacedFeatures;
+import net.igneo.imv.worldgen.dimension.ModDimensions;
+import net.igneo.imv.worldgen.dimension.effects.ModDimensionSpecialEffects;
 import net.igneo.imv.worldgen.structure.ModStructures;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -23,7 +29,11 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.DisplayRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Display;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ForgeRenderTypes;
 import net.minecraftforge.client.event.ScreenEvent;
@@ -40,6 +50,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
+import java.nio.file.Path;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(IMV.MOD_ID)
 public class IMV
@@ -48,21 +60,35 @@ public class IMV
     public static final String MOD_ID = "igneosminingrevamp";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    public IMV(FMLJavaModLoadingContext context)
+    public IMV()
     {
-        IEventBus modEventBus = context.getModEventBus();
-
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
-        ModStructures.register(modEventBus);
-        ModFeatures.register(modEventBus);
-        ModEntities.register(modEventBus);
-        ModSounds.register(modEventBus);
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
 
-        MinecraftForge.EVENT_BUS.register(this);
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModFeatures.register(modEventBus);
+        ModStructures.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
+        modEventBus.addListener(this::registerSpawnRules);
         modEventBus.addListener(this::addCreative);
+
+
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    public void registerSpawnRules(FMLCommonSetupEvent event) {
+        SpawnPlacements.register(ModEntities.CRYSTAL_SENTRY.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING, CrystalSentryEntity::canSpawnOnGround);
+        SpawnPlacements.register(ModEntities.FLORACHNID.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING, FlorachnidEntity::canSpawnOnGround);
+        SpawnPlacements.register(ModEntities.SUNDEWPEDE_HEAD.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING, SundewpedeHeadEntity::canSpawnOnGround);
+        SpawnPlacements.register(ModEntities.RAFFLROPTER.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING, RafflropterEntity::canSpawnOnGround);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -100,6 +126,7 @@ public class IMV
             EntityRenderers.register(ModEntities.SUNDEWPEDE_TAIL.get(), SundewpedeTailRenderer::new);
             EntityRenderers.register(ModEntities.RAFFLROPTER.get(), RafflropterRenderer::new);
             EntityRenderers.register(ModEntities.SAMARANADE.get(), SamaranadeRenderer::new);
+            EntityRenderers.register(ModEntities.FLORACHNID.get(), FlorachnidRenderer::new);
         }
     }
 }
