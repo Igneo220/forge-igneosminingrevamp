@@ -1,7 +1,6 @@
 package net.igneo.imv.networking;
 
-import net.igneo.imv.networking.packet.ScreenshakeS2CPacket;
-import net.igneo.imv.networking.packet.SundewpedeSyncS2CPacket;
+import net.igneo.imv.networking.packet.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -38,6 +37,26 @@ public class ModMessages {
                 .decoder(ScreenshakeS2CPacket::new)
                 .encoder(ScreenshakeS2CPacket::toBytes)
                 .consumerMainThread(ScreenshakeS2CPacket::handle)
+                .add();
+        net.messageBuilder(DetectSoundS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(DetectSoundS2CPacket::new)
+                .encoder(DetectSoundS2CPacket::toBytes)
+                .consumerMainThread(DetectSoundS2CPacket::handle)
+                .add();
+        net.messageBuilder(CrystalSentrySummonSoundS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(CrystalSentrySummonSoundS2CPacket::new)
+                .encoder(CrystalSentrySummonSoundS2CPacket::toBytes)
+                .consumerMainThread(CrystalSentrySummonSoundS2CPacket::handle)
+                .add();
+        net.messageBuilder(FloraSummonSoundS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FloraSummonSoundS2CPacket::new)
+                .encoder(FloraSummonSoundS2CPacket::toBytes)
+                .consumerMainThread(FloraSummonSoundS2CPacket::handle)
+                .add();
+        net.messageBuilder(RafflSummonSoundS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(RafflSummonSoundS2CPacket::new)
+                .encoder(RafflSummonSoundS2CPacket::toBytes)
+                .consumerMainThread(RafflSummonSoundS2CPacket::handle)
                 .add();
     }
 

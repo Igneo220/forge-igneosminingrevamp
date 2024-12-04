@@ -2,7 +2,159 @@
   "crystal_sentry_attack": {
     "subtitles": "sounds.igneosminingrevamp.crystal_sentry_attack",
     "sounds": [
-      "igneosminingrevamp:crystalsentryattack"
+      "igneosminingrevamp:crystal_sentry_attack"
+    ]
+  },
+  "crystal_sentry_appear": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_sentry_appear",
+    "sounds": [
+      "igneosminingrevamp:crystal_sentry_appear"
+    ]
+  },
+  "crystal_sentry_death": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_sentry_death",
+    "sounds": [
+      "igneosminingrevamp:crystal_sentry_death"
+    ]
+  },
+  "crystal_sentry_hide": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_sentry_hide",
+    "sounds": [
+      "igneosminingrevamp:crystal_sentry_hide"
+    ]
+  },
+  "crystal_sentry_hurt": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_sentry_hurt",
+    "sounds": [
+      "igneosminingrevamp:crystal_sentry_hurt"
+    ]
+  },
+  "crystal_sentry_idle": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_sentry_idle",
+    "sounds": [
+      "igneosminingrevamp:crystal_sentry_idle"
+    ]
+  },
+  "sp_idle": {
+    "subtitles": "sounds.igneosminingrevamp.sp_idle",
+    "sounds": [
+      "igneosminingrevamp:sp_idle",
+      "igneosminingrevamp:sp_idletwo",
+      "igneosminingrevamp:sp_idlethree"
+    ]
+  },
+  "sp_death": {
+    "subtitles": "sounds.igneosminingrevamp.sp_death",
+    "sounds": [
+      "igneosminingrevamp:sp_death"
+    ]
+  },
+  "sp_hurt": {
+    "subtitles": "sounds.igneosminingrevamp.sp_hurt",
+    "sounds": [
+      "igneosminingrevamp:sp_hurt"
+    ]
+  },
+  "sp_scare": {
+    "subtitles": "sounds.igneosminingrevamp.sp_scare",
+    "sounds": [
+      "igneosminingrevamp:sp_scare"
+    ]
+  },
+  "raffl_death": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_death",
+    "sounds": [
+      "igneosminingrevamp:raffl_death"
+    ]
+  },
+  "raffl_fly": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_fly",
+    "sounds": [
+      "igneosminingrevamp:raffl_fly"
+    ]
+  },
+  "raffl_hurt": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_hurt",
+    "sounds": [
+      "igneosminingrevamp:raffl_hurt"
+    ]
+  },
+  "raffl_idle": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_idle",
+    "sounds": [
+      "igneosminingrevamp:raffl_idle"
+    ]
+  },
+  "raffl_recover": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_recover",
+    "sounds": [
+      "igneosminingrevamp:raffl_recover"
+    ]
+  },
+  "raffl_shoot": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_shoot",
+    "sounds": [
+      "igneosminingrevamp:raffl_shoot"
+    ]
+  },
+  "flora_attack": {
+    "subtitles": "sounds.igneosminingrevamp.flora_attack",
+    "sounds": [
+      "igneosminingrevamp:flora_attack"
+    ]
+  },
+  "flora_death": {
+    "subtitles": "sounds.igneosminingrevamp.flora_death",
+    "sounds": [
+      "igneosminingrevamp:flora_death"
+    ]
+  },
+  "flora_shoot": {
+    "subtitles": "sounds.igneosminingrevamp.flora_shoot",
+    "sounds": [
+      "igneosminingrevamp:flora_shoot"
+    ]
+  },
+  "flora_hurt": {
+    "subtitles": "sounds.igneosminingrevamp.flora_hurt",
+    "sounds": [
+      "igneosminingrevamp:flora_hurt"
+    ]
+  },
+  "crystal_detect": {
+    "subtitles": "sounds.igneosminingrevamp.crystal_detect",
+    "sounds": [
+      "igneosminingrevamp:crystal_detect"
+    ]
+  },
+  "heart_anger": {
+    "subtitles": "sounds.igneosminingrevamp.heart_anger",
+    "sounds": [
+      "igneosminingrevamp:heart_anger"
+    ]
+  },
+  "heart_beat": {
+    "subtitles": "sounds.igneosminingrevamp.heart_beat",
+    "sounds": [
+      "igneosminingrevamp:heart_beat"
+    ]
+  },
+  "flora_spawn": {
+    "subtitles": "sounds.igneosminingrevamp.flora_spawn",
+    "sounds": [
+      "igneosminingrevamp:flora_spawn"
+    ]
+  },
+  "cs_spawn": {
+    "subtitles": "sounds.igneosminingrevamp.cs_spawn",
+    "sounds": [
+      "igneosminingrevamp:cs_spawn"
+    ]
+  },
+  "raffl_spawn": {
+    "subtitles": "sounds.igneosminingrevamp.raffl_spawn",
+    "sounds": [
+      "igneosminingrevamp:raffl_spawn"
     ]
   }
 }

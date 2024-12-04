@@ -34,7 +34,7 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
     public void tick() {
         super.tick();
         if (!entity.isTransitioning() && entity.isAttacking()) {
-            if (attackDelay == 45) {
+            if (attackDelay == 30) {
                 entity.level().playSound(null, entity.blockPosition(), ModSounds.CRYSTAL_SENTRY_ATTACK.get(), SoundSource.HOSTILE, 0.2F, 1);
             }
             if (shouldCountTillNextAttack) {
@@ -79,12 +79,12 @@ public class CrystalSentryAttackGoal extends MeleeAttackGoal {
     }
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-        return pDistToEnemySqr <= 35;
+        return pDistToEnemySqr <= 30;
     }
     protected void performAttack(LivingEntity pEnemy) {
         this.mob.swing(InteractionHand.MAIN_HAND);
         this.mob.doHurtTarget(pEnemy);
-        pEnemy.setDeltaMovement(new Vec3(entity.getX()-pEnemy.getX(),1,entity.getZ()-pEnemy.getZ()).scale(0.3));
+        pEnemy.setDeltaMovement(new Vec3(entity.getX()-pEnemy.getX(),1,entity.getZ()-pEnemy.getZ()).scale(0.1));
     }
 
     @Override

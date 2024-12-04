@@ -4,11 +4,13 @@ import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ai.*;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.entity.sundewpede.head.SundewpedeHeadEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -36,6 +38,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.example.entity.BatEntity;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -47,11 +50,28 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnimal {
+    private int flytick = 0;
     public RafflropterEntity(EntityType<? extends RafflropterEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new FlyingMoveControl(this, 20, true);
         this.navigation = this.createNavigation(pLevel);
         this.setNoGravity(true);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.RAFFL_IDLE.get();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.RAFFL_DEATH.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.RAFFL_HURT.get();
     }
 
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
@@ -164,6 +184,11 @@ public class RafflropterEntity extends Monster implements GeoEntity, FlyingAnima
 
     @Override
     public void tick() {
+        ++flytick;
+        if (flytick >= 50 && !this.onGround()) {
+            this.level().playSound(null, this.blockPosition(), ModSounds.RAFFL_FLY.get(), SoundSource.HOSTILE);
+            flytick = 0;
+        }
         if (this.getStamina() == 0) {
             this.addDeltaMovement(new Vec3(0, -0.03, 0));
         }

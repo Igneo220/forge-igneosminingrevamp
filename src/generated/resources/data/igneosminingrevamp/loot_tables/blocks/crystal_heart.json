@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "igneosminingrevamp:crystal_heart"
+          "name": "igneosminingrevamp:crystal_heart_item"
         }
       ],
       "rolls": 1.0

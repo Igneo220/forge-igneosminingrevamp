@@ -3,8 +3,10 @@ package net.igneo.imv.entity.ai;
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.rafflropter.RafflropterEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.util.AirAndWaterRandomPos;
@@ -41,7 +43,10 @@ public class RafflAttackGoal extends Goal {
     public void tick() {
         --shootDelay;
         if (shootDelay <= 8) {
-            entity.setAttacking(true);
+            if (!entity.isAttacking()) {
+                entity.level().playSound(null,entity.blockPosition(), ModSounds.RAFFL_SHOOT.get(), SoundSource.HOSTILE);
+                entity.setAttacking(true);
+            }
             if (shootDelay <= 0) {
                 entity.addStamina(-1);
                 shootDelay = 50;

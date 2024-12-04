@@ -2,7 +2,9 @@ package net.igneo.imv.entity.ai;
 
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.florachnid.FlorachnidEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
@@ -110,6 +112,7 @@ public class FlorachnidShootGoal extends MeleeAttackGoal {
             d0 = -0.4;
         }
         shootAnimDelay = 2;
+        entity.level().playSound(null,entity.blockPosition(), ModSounds.FLORA_SHOOT.get(), SoundSource.HOSTILE,0.5F,(float)Math.random() + 0.5F);
         ModEntities.SAMARANADE.get().spawn((ServerLevel) entity.level(),entity.blockPosition().above(), MobSpawnType.TRIGGERED).addDeltaMovement(new Vec3(d0,1,d1));
         entity.addStamina(-1);
     }

@@ -2,8 +2,10 @@ package net.igneo.imv.entity.ai;
 
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.block.Blocks;
@@ -21,8 +23,14 @@ public class CrystalSentryMoveGoal extends Goal {
 
     @Override
     public void tick() {
-        entity.setAwake(false);
+        if (entity.isAwake()) {
+
+            entity.setAwake(false);
+        }
         --entity.moveAnimDelay;
+        if (entity.moveAnimDelay == 22) {
+            entity.level().playSound(null,entity.blockPosition(), ModSounds.CRYSTAL_SENTRY_HIDE.get(), SoundSource.HOSTILE);
+        }
         if (entity.moveAnimDelay == 0) {
             boolean searching = true;
             int d0 = 0;
@@ -83,6 +91,7 @@ public class CrystalSentryMoveGoal extends Goal {
             entity.moveDelay = 100;
             entity.moveAnimDelay = 30;
             entity.setAwake(true);
+            entity.level().playSound(null,nPos, ModSounds.CRYSTAL_SENTRY_APPEAR.get(), SoundSource.HOSTILE);
         }
     }
 }

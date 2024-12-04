@@ -5,12 +5,14 @@ import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.ai.CrystalSentryAttackGoal;
 import net.igneo.imv.entity.ai.CrystalSentryMoveGoal;
 import net.igneo.imv.entity.ai.CrystalTargetGoal;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -82,7 +84,7 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
             }
             if (System.currentTimeMillis() >= idleSoundDelay + 1000) {
                 //this.level().playSound(null,this.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.HOSTILE);
-                this.level().playLocalSound(this.getX(),this.getY(),this.getZ(),SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.HOSTILE,1,1,false);
+                this.level().playLocalSound(this.getX(),this.getY(),this.getZ(),ModSounds.CRYSTAL_SENTRY_IDLE.get(), SoundSource.HOSTILE, 1F, (float) Math.random(),false);
                 idleSoundDelay = System.currentTimeMillis();
             }
         }
@@ -240,6 +242,16 @@ public class CrystalSentryEntity extends Monster implements GeoEntity {
             return false;
         }
         return super.hurt(pSource, pAmount);
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.CRYSTAL_SENTRY_DEATH.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.CRYSTAL_SENTRY_HURT.get();
     }
 
     @Override

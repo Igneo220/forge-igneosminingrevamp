@@ -1,6 +1,7 @@
 package net.igneo.imv.block.custom;
 
 import net.igneo.imv.block.ModBlocks;
+import net.igneo.imv.item.ModItems;
 import net.igneo.imv.networking.ModMessages;
 import net.igneo.imv.networking.packet.ScreenshakeS2CPacket;
 import net.igneo.imv.worldgen.dimension.ModDimensions;
@@ -54,7 +55,8 @@ public class ModPortalBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pPlayer.canChangeDimensions()) {
+        if (pPlayer.canChangeDimensions() && pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
+            pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount()-1);
             handlePortal(pPlayer, pPos);
             return InteractionResult.SUCCESS;
         } else {

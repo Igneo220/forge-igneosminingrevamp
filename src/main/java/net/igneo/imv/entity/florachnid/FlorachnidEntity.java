@@ -8,12 +8,14 @@ import net.igneo.imv.entity.ai.FlorachnidAttackGoal;
 import net.igneo.imv.entity.ai.FlorachnidJumpGoal;
 import net.igneo.imv.entity.ai.FlorachnidShootGoal;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -122,17 +124,27 @@ public class FlorachnidEntity extends Monster implements GeoEntity {
                 .add(Attributes.FLYING_SPEED, 0.7D)
                 .add(Attributes.ARMOR_TOUGHNESS, 10D)
                 .add(Attributes.ARMOR, 10D)
-                .add(Attributes.ATTACK_DAMAGE, 10D)
-                .add(Attributes.ATTACK_KNOCKBACK, 4D)
+                .add(Attributes.ATTACK_DAMAGE, 6D)
+                .add(Attributes.ATTACK_KNOCKBACK, 2D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 999999999D)
                 .add(Attributes.FOLLOW_RANGE, 20D);
     }
 
     @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.FLORA_HURT.get();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.FLORA_DEATH.get();
+    }
+
+    @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FlorachnidJumpGoal(this));
-        this.goalSelector.addGoal(2, new FlorachnidShootGoal(this,0.8,true));
-        this.goalSelector.addGoal(3, new FlorachnidAttackGoal(this, 0.8, true));
+        //this.goalSelector.addGoal(1, new FlorachnidJumpGoal(this));
+        this.goalSelector.addGoal(1, new FlorachnidShootGoal(this,0.6,true));
+        this.goalSelector.addGoal(2, new FlorachnidAttackGoal(this, 0.6, true));
 
         this.targetSelector.addGoal(1, new CrystalTargetGoal(this, Player.class, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, true));

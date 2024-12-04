@@ -1,8 +1,10 @@
 package net.igneo.imv.entity.ai;
 
 import net.igneo.imv.dimensionmanagers.CrystalManager;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -23,22 +25,25 @@ public class SundewpedePanicGoal extends PanicGoal {
         boolean detected = false;
         if (!entity.level().isClientSide) {
             ServerLevel level = (ServerLevel) entity.level();
-            for (ServerPlayer target : CrystalManager.getDetected()) {
-                if (target.distanceTo(entity) <= 15 && target != entity) {
-                    detected = true;
-                    this.panicTime = 10;
-                    break;
+            if (panicTime == 0) {
+                for (ServerPlayer target : CrystalManager.getDetected()) {
+                    if (target.distanceTo(entity) <= 50 && target != entity) {
+                        detected = true;
+                        entity.level().playSound(null,entity.blockPosition(), ModSounds.SP_SCARE.get(), SoundSource.HOSTILE);
+                        this.panicTime = 10;
+                        break;
+                    }
                 }
-            }
-            for (ServerPlayer target : level.players()) {
-                if (target.distanceTo(entity) <= 5 && target != entity) {
-                    detected = true;
-                    this.panicTime = 50;
-                    CrystalManager.detect(target);
-                    break;
+                for (ServerPlayer target : level.players()) {
+                    if (target.distanceTo(entity) <= 50 && target != entity) {
+                        detected = true;
+                        entity.level().playSound(null,entity.blockPosition(), ModSounds.SP_SCARE.get(), SoundSource.HOSTILE);
+                        this.panicTime = 50;
+                        CrystalManager.detect(target);
+                        break;
+                    }
                 }
-            }
-            if (panicTime > 0) {
+            } else {
                 --panicTime;
             }
         }

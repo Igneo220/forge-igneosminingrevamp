@@ -6,8 +6,10 @@ import net.igneo.imv.entity.ai.SundewpedePanicGoal;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.entity.sundewpede.body.SundewpedeBodyEntity;
 import net.igneo.imv.entity.sundewpede.tail.SundewpedeTailEntity;
+import net.igneo.imv.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -33,6 +35,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -60,6 +63,22 @@ public class SundewpedeHeadEntity extends Monster implements GeoEntity {
                                            MobSpawnType category, BlockPos pos, RandomSource random) {
         // Ensure the mob spawns only on solid blocks that are near the ground
         return !level.getBlockState(pos.below()).isAir() && level.getBlockState(pos).isAir();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.SP_IDLE.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.SP_HURT.get();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.SP_DEATH.get();
     }
 
     @Override

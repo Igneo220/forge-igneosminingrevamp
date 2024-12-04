@@ -53,7 +53,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRYSTAL_ARMOR = registerBlock("crystal_armor",
             () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(10)));
     public static final RegistryObject<Block> CRYSTAL_PLATES = registerBlock("crystal_plates",
-            () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(12)));
+            () -> new CrystalPlatesBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(12)));
     public static final RegistryObject<Block> CRYSTAL_SCALES = registerBlock("crystal_scales",
             () -> new CrystalArmorBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK).sound(SoundType.AMETHYST).lightLevel(state -> 15).explosionResistance(8)));
 

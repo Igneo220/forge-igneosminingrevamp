@@ -2,6 +2,8 @@ package net.igneo.imv.entity.ai;
 
 import net.igneo.imv.entity.rafflropter.RafflropterEntity;
 import net.igneo.imv.entity.rafflropter.RafflropterRenderer;
+import net.igneo.imv.sound.ModSounds;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;
 
 public class RafflropterLandGoal extends Goal {
@@ -20,6 +22,7 @@ public class RafflropterLandGoal extends Goal {
         if (entity.onGround()) {
             --regenDelay;
             if (regenDelay == 0) {
+                entity.level().playSound(null,entity.blockPosition(), ModSounds.RAFFL_RECOVER.get(), SoundSource.HOSTILE);
                 entity.addStamina(1);
                 regenDelay = 40;
             }

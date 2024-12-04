@@ -2,6 +2,8 @@ package net.igneo.imv.entity.ai;
 
 import net.igneo.imv.dimensionmanagers.CrystalManager;
 import net.igneo.imv.entity.florachnid.FlorachnidEntity;
+import net.igneo.imv.sound.ModSounds;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
@@ -29,7 +31,8 @@ public class FlorachnidAttackGoal extends MeleeAttackGoal {
     public void tick() {
         super.tick();
         if (entity.getAttacking() == 1) {
-            if (attackDelay == 45) {
+            if (attackDelay == 30) {
+                entity.level().playSound(null,entity.blockPosition(), ModSounds.FLORA_ATTACK.get(), SoundSource.HOSTILE,0.5F,(float)Math.random() + 0.5F);
                 //entity.level().playSound(null, entity.blockPosition(), ModSounds.CRYSTAL_SENTRY_ATTACK.get(), SoundSource.HOSTILE, 0.2F, 1);
             }
             if (shouldCountTillNextAttack) {

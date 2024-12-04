@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "imv:block/crystal_plates_horizontal",
+      "model": "igneosminingrevamp:block/crystal_plates",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "imv:block/crystal_plates"
+      "model": "igneosminingrevamp:block/crystal_plates"
     },
     "axis=z": {
-      "model": "imv:block/crystal_plates_horizontal",
+      "model": "igneosminingrevamp:block/crystal_plates",
       "x": 90
     }
   }
