@@ -80,7 +80,15 @@ public class ModPortalBlock extends Block {
                     return InteractionResult.CONSUME;
                 }
             } else {
-                handlePortal(pPlayer, pPos);
+                for (Player player : pLevel.players()){
+                    float f = (float) (player.getBlockX() - pPos.getX());
+                    float f1 = (float) (player.getBlockY() - pPos.getY());
+                    float f2 = (float) (player.getBlockZ() - pPos.getZ());
+                    float dist = Mth.sqrt(f * f + f1 * f1 + f2 * f2);
+                    if (dist < 10) {
+                        handlePortal(player, pPos);
+                    }
+                }
                 return InteractionResult.SUCCESS;
             }
         } else {
