@@ -21,38 +21,8 @@ public class CrystalArmorBlock extends Block {
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState pState) {
-        return false;
-    }
-
-    @Override
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        super.randomTick(pState, pLevel, pPos, pRandom);
-        for (int x = 10; x > 0; --x) {
-            for (int y = 10; y > 0; --y) {
-                for (int z = 10; z > 0; --z) {
-                    if (pLevel.getBlockState(pPos.subtract(new BlockPos(-x,-y+5,-z))).is(ModBlocks.CRYSTAL_HEART.get())) {
-                        System.out.println("emergency start");
-                        pLevel.scheduleTick(pPos.subtract(new BlockPos(-x,-y+5,-z)),ModBlocks.CRYSTAL_HEART.get(),0);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         super.stepOn(pLevel, pPos, pState, pEntity);
-        for (int x = 10; x > 0; --x) {
-            for (int y = 10; y > 0; --y) {
-                for (int z = 10; z > 0; --z) {
-                    if (pLevel.getBlockState(pPos.subtract(new BlockPos(-x,-y+5,-z))).is(ModBlocks.CRYSTAL_HEART.get())) {
-                        System.out.println("emergency start");
-                        pLevel.scheduleTick(pPos.subtract(new BlockPos(-x,-y+5,-z)),ModBlocks.CRYSTAL_HEART.get(),0);
-                    }
-                }
-            }
-        }
         if (pLevel instanceof ServerLevel && pEntity instanceof ServerPlayer) {
             CrystalManager.detect((ServerPlayer) pEntity);
         }
@@ -61,16 +31,6 @@ public class CrystalArmorBlock extends Block {
     @Override
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         super.wasExploded(pLevel, pPos, pExplosion);
-        for (int x = 10; x > 0; --x) {
-            for (int y = 10; y > 0; --y) {
-                for (int z = 10; z > 0; --z) {
-                    if (pLevel.getBlockState(pPos.subtract(new BlockPos(-x,-y+5,-z))).is(ModBlocks.CRYSTAL_HEART.get())) {
-                        System.out.println("emergency start");
-                        pLevel.scheduleTick(pPos.subtract(new BlockPos(-x,-y+5,-z)),ModBlocks.CRYSTAL_HEART.get(),0);
-                    }
-                }
-            }
-        }
         if (pLevel instanceof ServerLevel) {
             for (ServerPlayer player : ((ServerLevel) pLevel).players()) {
                 float f = (float)(player.getBlockX() - pPos.getX());

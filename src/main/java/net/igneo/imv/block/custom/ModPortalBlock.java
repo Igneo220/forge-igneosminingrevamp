@@ -17,6 +17,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.commands.PlaceCommand;
 import net.minecraft.server.level.*;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -62,7 +63,15 @@ public class ModPortalBlock extends Block {
             if (resourcekey != ModDimensions.IGNEODIM_LEVEL_KEY) {
                 if (pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
                     pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount() - 1);
-                    handlePortal(pPlayer, pPos);
+                    for (Player player : pLevel.players()){
+                        float f = (float) (player.getBlockX() - pPos.getX());
+                        float f1 = (float) (player.getBlockY() - pPos.getY());
+                        float f2 = (float) (player.getBlockZ() - pPos.getZ());
+                        float dist = Mth.sqrt(f * f + f1 * f1 + f2 * f2);
+                        if (dist < 10) {
+                            handlePortal(player, pPos);
+                        }
+                    }
                     return InteractionResult.SUCCESS;
                 } else {
                     if (pPlayer.level().isClientSide) {

@@ -2,6 +2,7 @@ package net.igneo.imv;
 
 import com.mojang.logging.LogUtils;
 import net.igneo.imv.block.ModBlocks;
+import net.igneo.imv.block.entity.ModBlockEntities;
 import net.igneo.imv.entity.ModEntities;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryEntity;
 import net.igneo.imv.entity.crystalsentry.CrystalSentryRenderer;
@@ -20,8 +21,6 @@ import net.igneo.imv.sound.ModSounds;
 import net.igneo.imv.worldgen.ModConfiguredFeatures;
 import net.igneo.imv.worldgen.ModFeatures;
 import net.igneo.imv.worldgen.ModPlacedFeatures;
-import net.igneo.imv.worldgen.dimension.ModDimensions;
-import net.igneo.imv.worldgen.dimension.effects.ModDimensionSpecialEffects;
 import net.igneo.imv.worldgen.structure.ModStructures;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -34,7 +33,6 @@ import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ForgeRenderTypes;
@@ -71,6 +69,7 @@ public class IMV
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         ModFeatures.register(modEventBus);
         ModStructures.register(modEventBus);
         ModEntities.register(modEventBus);

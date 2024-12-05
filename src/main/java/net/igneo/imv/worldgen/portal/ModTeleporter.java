@@ -8,7 +8,6 @@ import net.igneo.imv.block.ModBlocks;
 import net.igneo.imv.block.custom.ModPortalBlock;
 import net.igneo.imv.worldgen.structure.CrystalBehemothStructure;
 import net.igneo.imv.worldgen.structure.placement.SetRotJigsawPlacement;
-import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.commands.CommandSigningContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.ResourceKeyArgument;

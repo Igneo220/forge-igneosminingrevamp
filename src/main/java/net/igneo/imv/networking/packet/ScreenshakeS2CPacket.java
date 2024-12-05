@@ -30,7 +30,7 @@ public class ScreenshakeS2CPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            ScreenshakeHandler.addScreenshake(new ScreenshakeInstance(duration).setEasing(Easing.BOUNCE_IN_OUT).setIntensity(intensity));
+            ScreenshakeHandler.addScreenshake(new ScreenshakeInstance(duration).setIntensity(intensity));
         });
         return true;
     }
