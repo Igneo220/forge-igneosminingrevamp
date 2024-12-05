@@ -59,40 +59,62 @@ public class ModPortalBlock extends Block {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ResourceKey<Level> resourcekey = pPlayer.level().dimension() == ModDimensions.IGNEODIM_LEVEL_KEY ?
                 Level.OVERWORLD : ModDimensions.IGNEODIM_LEVEL_KEY;
-        if (pPlayer.canChangeDimensions()) {
-            if (resourcekey != ModDimensions.IGNEODIM_LEVEL_KEY) {
-                if (pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
-                    pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount() - 1);
-                    for (Player player : pLevel.players()){
+        if (pPlayer.level() instanceof ServerLevel serverlevel) {
+            MinecraftServer minecraftserver = serverlevel.getServer();
+
+            ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
+            if (pPlayer.canChangeDimensions()) {
+                if (resourcekey != ModDimensions.IGNEODIM_LEVEL_KEY) {
+                    if (pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
+                        pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount() - 1);
+                        BlockPos newPos = generatePos(portalDimension, false);
+                        for (Player player : pLevel.players()) {
+                            float f = (float) (player.getBlockX() - pPos.getX());
+                            float f1 = (float) (player.getBlockY() - pPos.getY());
+                            float f2 = (float) (player.getBlockZ() - pPos.getZ());
+                            float dist = Mth.sqrt(f * f + f1 * f1 + f2 * f2);
+                            if (dist < 10) {
+                                handlePortal(player, newPos);
+                            }
+                        }
+                        return InteractionResult.SUCCESS;
+                    } else {
+                        if (pPlayer.level().isClientSide) {
+                            pPlayer.sendSystemMessage(Component.literal("You have an unfulfilled quota. Come back with a [Crystal Heart] and try again."));
+                        }
+                        return InteractionResult.CONSUME;
+                    }
+                } else {
+                    BlockPos newPos = generatePos(portalDimension, true);
+                    for (Player player : pLevel.players()) {
                         float f = (float) (player.getBlockX() - pPos.getX());
                         float f1 = (float) (player.getBlockY() - pPos.getY());
                         float f2 = (float) (player.getBlockZ() - pPos.getZ());
                         float dist = Mth.sqrt(f * f + f1 * f1 + f2 * f2);
                         if (dist < 10) {
-                            handlePortal(player, pPos);
+                            handlePortal(player, newPos);
                         }
                     }
                     return InteractionResult.SUCCESS;
-                } else {
-                    if (pPlayer.level().isClientSide) {
-                        pPlayer.sendSystemMessage(Component.literal("You have an unfulfilled quota. Come back with a [Crystal Heart] and try again."));
-                    }
-                    return InteractionResult.CONSUME;
                 }
             } else {
-                for (Player player : pLevel.players()){
-                    float f = (float) (player.getBlockX() - pPos.getX());
-                    float f1 = (float) (player.getBlockY() - pPos.getY());
-                    float f2 = (float) (player.getBlockZ() - pPos.getZ());
-                    float dist = Mth.sqrt(f * f + f1 * f1 + f2 * f2);
-                    if (dist < 10) {
-                        handlePortal(player, pPos);
-                    }
-                }
-                return InteractionResult.SUCCESS;
+                return InteractionResult.CONSUME;
             }
         } else {
-            return InteractionResult.CONSUME;
+            if (pPlayer.canChangeDimensions()) {
+                if (resourcekey != ModDimensions.IGNEODIM_LEVEL_KEY) {
+                    if (pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
+                        return InteractionResult.SUCCESS;
+                    } else {
+                        pPlayer.sendSystemMessage(Component.literal("You have an unfulfilled quota. Come back with a [Crystal Heart] and try again."));
+                        return InteractionResult.CONSUME;
+                    }
+                } else {
+                    return InteractionResult.SUCCESS;
+                }
+            } else {
+                return InteractionResult.CONSUME;
+            }
         }
     }
 
@@ -105,16 +127,14 @@ public class ModPortalBlock extends Block {
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
                 if(resourcekey == ModDimensions.IGNEODIM_LEVEL_KEY) {
-                    BlockPos newPos = generatePos(portalDimension,true);
-                    player.setPos(newPos.getCenter());
-                    player.changeDimension(portalDimension, new ModTeleporter(newPos, true));
-                    player.setPos(newPos.getCenter());
+                    player.setPos(pPos.getCenter());
+                    player.changeDimension(portalDimension, new ModTeleporter(pPos, true));
+                    player.setPos(pPos.getCenter());
                     ModMessages.sendToPlayer(new ScreenshakeS2CPacket(125,2), (ServerPlayer) player);
                 } else {
-                    BlockPos newPos = generatePos(minecraftserver.overworld(),false);
-                    player.setPos(newPos.getCenter());
-                    player.changeDimension(minecraftserver.overworld(),new ModTeleporter(newPos, false));
-                    player.setPos(newPos.getCenter());
+                    player.setPos(pPos.getCenter());
+                    player.changeDimension(minecraftserver.overworld(),new ModTeleporter(pPos, false));
+                    player.setPos(pPos.getCenter());
                     ModMessages.sendToPlayer(new ScreenshakeS2CPacket(75,2), (ServerPlayer) player);
                 }
             }
