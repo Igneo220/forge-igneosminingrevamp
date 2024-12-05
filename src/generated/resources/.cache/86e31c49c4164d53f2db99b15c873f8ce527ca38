@@ -1,5 +1,5 @@
-// 1.20.1	2024-11-29T23:01:51.9204185	Tags for minecraft:block mod id igneosminingrevamp
+// 1.20.1	2024-12-04T19:14:23.7773411	Tags for minecraft:block mod id igneosminingrevamp
 412b2f72a42cc720dd9fb948400a89fa6b5941c6 data/minecraft/tags/blocks/dirt.json
 c76482a7abdeb00f73a777ad18ea3955a01e7313 data/minecraft/tags/blocks/dripstone_replaceable_blocks.json
-b6b750d61cee81b78f4ff172ad9bfe94432bd91d data/minecraft/tags/blocks/mineable/pickaxe.json
+ee49f71d60661ad6c5c25c1d02da7eb45a9f7fdf data/minecraft/tags/blocks/mineable/pickaxe.json
 4adf8ac6087ccbb01c784ae74ac890c227e9578d data/minecraft/tags/blocks/moss_replaceable.json

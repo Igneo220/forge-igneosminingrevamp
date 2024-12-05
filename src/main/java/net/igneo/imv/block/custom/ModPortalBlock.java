@@ -10,6 +10,7 @@ import net.minecraft.client.gui.font.providers.UnihexProvider;
 import net.minecraft.client.renderer.chunk.RenderChunkRegion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.Pools;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -55,10 +56,24 @@ public class ModPortalBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pPlayer.canChangeDimensions() && pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
-            pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount()-1);
-            handlePortal(pPlayer, pPos);
-            return InteractionResult.SUCCESS;
+        ResourceKey<Level> resourcekey = pPlayer.level().dimension() == ModDimensions.IGNEODIM_LEVEL_KEY ?
+                Level.OVERWORLD : ModDimensions.IGNEODIM_LEVEL_KEY;
+        if (pPlayer.canChangeDimensions()) {
+            if (resourcekey != ModDimensions.IGNEODIM_LEVEL_KEY) {
+                if (pPlayer.getMainHandItem().is(ModItems.CRYSTAL_HEART.get())) {
+                    pPlayer.getMainHandItem().setCount(pPlayer.getMainHandItem().getCount() - 1);
+                    handlePortal(pPlayer, pPos);
+                    return InteractionResult.SUCCESS;
+                } else {
+                    if (pPlayer.level().isClientSide) {
+                        pPlayer.sendSystemMessage(Component.literal("You have an unfulfilled quota. Come back with a [Crystal Heart] and try again."));
+                    }
+                    return InteractionResult.CONSUME;
+                }
+            } else {
+                handlePortal(pPlayer, pPos);
+                return InteractionResult.SUCCESS;
+            }
         } else {
             return InteractionResult.CONSUME;
         }

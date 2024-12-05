@@ -37,7 +37,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> LUMINIDE = registerBlock("luminide",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST).lightLevel(state -> 15)));
     public static final RegistryObject<Block> CRYSTAL_ORE = registerBlock("crystal_ore",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST).noLootTable()));
+            () -> new CrystalOreBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST).noLootTable()));
     public static final RegistryObject<Block> COAL_SATURINIUM_ORE = registerBlock("coal_saturinium_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.AMETHYST)));
     public static final RegistryObject<Block> IRON_SATURINIUM_ORE = registerBlock("iron_saturinium_ore",

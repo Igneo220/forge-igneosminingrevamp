@@ -1,0 +1,21 @@
+{
+  "item.igneosminingrevamp.crystal_heart_item": "Crystal Heart",
+
+  "block.igneosminingrevamp.huestone": "Huestone",
+  "block.igneosminingrevamp.pointed_huestone": "Pointed Huestone",
+  "block.igneosminingrevamp.valuenite": "Valuenite",
+  "block.igneosminingrevamp.pointed_valuenite": "Pointed Valuenite",
+  "block.igneosminingrevamp.saturinium": "Saturinium",
+  "block.igneosminingrevamp.mossy_saturinium": "Mossy Saturinium",
+  "block.igneosminingrevamp.luminide": "Luminide",
+  "block.igneosminingrevamp.crystal_ore": "Iron Saturinium Ore",
+  "block.igneosminingrevamp.coal_saturinium_ore": "Coal Saturinium Ore",
+  "block.igneosminingrevamp.iron_saturinium_ore": "Iron Saturinium Ore",
+  "block.igneosminingrevamp.copper_saturinium_ore": "Copper Saturinium Ore",
+  "block.igneosminingrevamp.zinc_saturinium_ore": "Zinc Saturinium Ore",
+  "block.igneosminingrevamp.teleporter": "Teleporter",
+  "block.igneosminingrevamp.crystal_heart": "Crystal Heart",
+  "block.igneosminingrevamp.crystal_armor": "Crystal Armor",
+  "block.igneosminingrevamp.crystal_plates": "Crystal Plate",
+  "block.igneosminingrevamp.crystal_scales": "Crystal Scales"
+}
